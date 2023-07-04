@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ECharts.Net.Webview2\ECharts.Net.Webview2.csproj" />
+    <ProjectReference Include="..\ECharts.Net.Winform\ECharts.Net.Winform.csproj" />
+    <ProjectReference Include="..\ECharts.Net\ECharts.Net.csproj" />
+  </ItemGroup>
+
+</Project>
