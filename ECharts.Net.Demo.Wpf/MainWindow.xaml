@@ -1,0 +1,20 @@
+﻿<Window x:Class="ECharts.Net.Demo.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ECharts.Net.Demo.Wpf"
+        xmlns:echarts="clr-namespace:ECharts.Net.Wpf;assembly=ECharts.Net.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <echarts:EChartsView Width="400" Height="400" x:Name="echart" EChartsReady="OnEChartsReady"/>
+        <StackPanel x:Name="OperationPanel" IsEnabled="False" Grid.Column="1" Margin="16">
+            <Button x:Name="BtnInitChart" Height="50" Click="BtnInitChart_Click">InitChart</Button>
+        </StackPanel>
+    </Grid>
+</Window>
