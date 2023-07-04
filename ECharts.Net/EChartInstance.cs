@@ -1,7 +1,4 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-
-namespace ECharts.Net;
+﻿namespace ECharts.Net;
 
 public class EChartInstance
 {
@@ -33,8 +30,8 @@ public class EChartInstance
     static EChartInstance()
     {
         SerializerOptions = new JsonSerializerOptions();
-        var enumConverter = new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, false);
-        SerializerOptions.Converters.Add(enumConverter);
+        SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, false));
+        SerializerOptions.Converters.Add(new JsonHexColorConverter());
         SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     }

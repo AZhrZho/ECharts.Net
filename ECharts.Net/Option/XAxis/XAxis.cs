@@ -6,11 +6,3 @@ public class XAxis
     public AxisType? Type { get; set; }
     public IList<string>? Data { get; set; }
 }
-
-public enum AxisType
-{
-    Category,
-    Value,
-    Time,
-    Log
-}
