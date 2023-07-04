@@ -17,53 +17,27 @@ public partial class EChartsView : UserControl
     public IWebViewProxy? WebViewProxy { get; private set; }
     public EChartInstance? EChart { get; private set; }
 
+    public Option? ChartOption { get; set; }
+    public string? ChartOptionInJs { get; set; }
+
     private void WebView_CoreWebView2InitializationCompleted(object? sender, CoreWebView2InitializationCompletedEventArgs e)
     {
+        webView.CoreWebView2InitializationCompleted -= WebView_CoreWebView2InitializationCompleted;
         if (!e.IsSuccess)
         {
             throw new ApplicationException("webview2 initialization failed", e.InitializationException);
         }
 
-        webView.NavigationCompleted += NavigationCompleteHandler;
-        webView.NavigateToString(ContainerHtml);
-
-        async void NavigationCompleteHandler(object? sender, CoreWebView2NavigationCompletedEventArgs _)
+        WebViewProxy = new WebView2Proxy(webView.CoreWebView2);
+        WebViewProxy.InitializeEchartsEngineAsync().ContinueWith((_) =>
         {
-            webView.Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(() => 
             {
-                webView.NavigationCompleted -= NavigationCompleteHandler;
-                WebViewProxy = new WebView2Proxy(webView.CoreWebView2);
-            });
-            await WebViewProxy!.InitializeEchartsEngineAsync();
-            await WebViewProxy.InvokeScriptAsync("const chart=echarts.init(document.getElementById('root'))");
-            EChart = new EChartInstance(WebViewProxy);
-            EChartsReady?.Invoke(this, new());
-        }
-        
-        webView.CoreWebView2InitializationCompleted -= WebView_CoreWebView2InitializationCompleted;
+                EChart = new EChartInstance(WebViewProxy);
+                if (ChartOption is not null) EChart.SetOption(ChartOption);
+                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs);
+                EChartsReady?.Invoke(this, new());
+            });            
+        });
     }
-
-    private const string ContainerHtml = 
-    """ 
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <style>
-            * {
-                margin:0;
-                padding:0;
-            }
-                html,body{
-                height:100%;
-            }
-            .box{
-                height:100%;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="root" class="box"></div>
-    </body>
-    </html>
-    """;
 }

@@ -5,18 +5,6 @@ namespace ECharts.Net.Demo.Winform
         public Form1()
         {
             InitializeComponent();
-
-            button1.Enabled = false;
-            chart.EChartsReady += Chart_EChartsReady;
-        }
-
-        private void Chart_EChartsReady(object? sender, EventArgs e)
-        {
-            button1.Enabled = true;
-        }
-
-        private void BtnInitChart_Click(object sender, EventArgs e)
-        {
             var option = new Option
             {
                 Title = new() { Text = "DemoChart" },
@@ -40,7 +28,7 @@ namespace ECharts.Net.Demo.Winform
                     }
                 }
             };
-            chart.EChart!.SetOption(option);
+            chart.ChartOption = option;
         }
     }
 }
