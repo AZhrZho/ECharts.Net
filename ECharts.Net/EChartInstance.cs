@@ -26,6 +26,18 @@ public class EChartInstance
         webView.InvokeScriptAsync($"{instanceName}.setOption({optionInJson})");
     }
 
+    public void RegisterScriptObject<T>()
+    {
+        var typeName = typeof(T).Name;
+        var instance = Activator.CreateInstance<T>();
+        webView.AddBridgeObject(typeName, instance!);
+    }
+
+    public void RegisterFunctionRaw(string rawScript)
+    {
+        webView.InvokeScriptAsync(rawScript).GetAwaiter().GetResult();
+    }
+
     private static JsonSerializerOptions SerializerOptions { get; }
     static EChartInstance()
     {

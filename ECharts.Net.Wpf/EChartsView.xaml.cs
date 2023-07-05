@@ -1,5 +1,6 @@
 ﻿using Microsoft.Web.WebView2.Core;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows.Controls;
 
 namespace ECharts.Net.Wpf;
@@ -15,6 +16,8 @@ public partial class EChartsView : UserControl
 
     public event EventHandler? EChartsReady;
     public IWebViewProxy? WebViewProxy { get; private set; }
+    
+    [NotNull]
     public EChartInstance? EChart { get; private set; }
 
     public Option? ChartOption { get; set; }
