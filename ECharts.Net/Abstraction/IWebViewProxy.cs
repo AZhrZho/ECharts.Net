@@ -6,5 +6,5 @@ public interface IWebViewProxy
     Task InitializeEchartsEngineAsync();
     Task AddBridgeObject(string key, object bridgeObject);
 
-    public static string BridgedObjectHost { get; set; } = string.Empty
+    public static string BridgedObjectHost { get; set; } = string.Empty;
 }
