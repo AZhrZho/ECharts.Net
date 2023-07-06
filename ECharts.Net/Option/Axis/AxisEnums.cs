@@ -6,7 +6,13 @@ public enum XAxisPosition
     Bottom
 }
 
-public enum XAxisNameLocation
+public enum YAxisPosition
+{
+    Left,
+    Right
+}
+
+public enum AxisNameLocation
 {
     Start,
     Middle,

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -16,6 +16,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resource\echarts_5.4.2.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Option\YAxis\" />
   </ItemGroup>
 
 </Project>

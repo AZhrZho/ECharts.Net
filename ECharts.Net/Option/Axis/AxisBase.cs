@@ -1,18 +1,17 @@
 ﻿using ECharts.Net.Util;
 
-namespace ECharts.Net;
+namespace ECharts.Net.Internal;
 
-public class XAxis
+public abstract class AxisBase
 {
     public string? Id { get; set; }
     public bool? Show { get; set; }
     public int? GridIndex { get; set; }
     public bool? AlignTicks { get; set; }
-    public XAxisPosition? Position { get; set; }
     public double? Offset { get; set; }
     public AxisType? Type { get; set; }
     public string? Name { get; set; }
-    public XAxisNameLocation? NameLocation { get; set; }
+    public AxisNameLocation? NameLocation { get; set; }
     // NameTextStyle
     public double? NameGap { get; set; }
     public double? NameRotate { get; set; }
@@ -37,6 +36,7 @@ public class XAxis
     // SplitLine
     // MinorSplitLine
     // SplitArea
+    // TODO: Support Data.TextStyle
     public IList<string>? Data { get; set; }
     // AxisPointer
     public bool? Animation { get; set; }
