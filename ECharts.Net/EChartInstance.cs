@@ -1,4 +1,6 @@
-﻿namespace ECharts.Net;
+﻿using ECharts.Net.JsonConverter;
+
+namespace ECharts.Net;
 
 public class EChartInstance
 {
@@ -48,6 +50,7 @@ public class EChartInstance
         SerializerOptions.Converters.Add(new JsonHexColorConverter());
         SerializerOptions.Converters.Add(new JsonIntersectedConverter());
         SerializerOptions.Converters.Add(new JsonThicknessConverter());
+        SerializerOptions.Converters.Add(new JsonSeriesListConverter());
 
         SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -32,12 +31,12 @@ namespace ECharts.Net.Demo.Wpf
             },
             Series = new List<Series>
             {
-                new()
+                new LineSeries()
                 {
                     Name = "Data",
-                    Step = SeriesStep.Middle,
+                    Step = LineSeries.SeriesStep.Middle,
                     Type = SeriesType.Line,
-                    Data = Enumerable.Range(1, 10).Select(x => (double)x* 10).ToList()
+                    Data = Enumerable.Range(1, 10).Select(x => (double)x * 10).Select(x => x.ToString()).ToList()
                 }
             }
         };

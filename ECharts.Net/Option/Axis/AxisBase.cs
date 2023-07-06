@@ -16,11 +16,11 @@ public abstract class AxisBase
     public double? NameGap { get; set; }
     public double? NameRotate { get; set; }
     public bool? Inverse { get; set; }
-    public Intersected<bool, Intersected<IList<double>, IList<string>, IList<object>>> BoundaryGap { get; set; }
+    public Intersected<bool, Intersected<IList<double>, IList<string>, IList<object>>>? BoundaryGap { get; set; }
     // TODO: Add function support for XAxis.Min
-    public Intersected<double, string> Min { get; set; }
+    public Intersected<double, string>? Min { get; set; }
     // TODO: Add function support for XAxis.Max
-    public Intersected<double, string> Max { get; set; }
+    public Intersected<double, string>? Max { get; set; }
     public bool? Scale { get; set; }
     public int? SplitNumber { get; set; }
     public double? MinInterval { get; set; }
