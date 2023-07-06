@@ -20,7 +20,7 @@ namespace ECharts.Net.Demo.Wpf
 
         private readonly static Option chartOption1 = new()
         {
-            Title = new() { Text = "DemoChart" },
+            Title = new Title() { Text = "DemoChart" },
             XAxis = new()
             {
                 Type = AxisType.Category,

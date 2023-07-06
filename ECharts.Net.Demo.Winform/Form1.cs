@@ -7,7 +7,7 @@ namespace ECharts.Net.Demo.Winform
             InitializeComponent();
             var option = new Option
             {
-                Title = new() { Text = "DemoChart" },
+                Title = new Title() { Text = "DemoChart" },
                 XAxis = new()
                 {
                     Type = AxisType.Category,
