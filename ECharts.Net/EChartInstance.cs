@@ -39,12 +39,16 @@ public class EChartInstance
     }
 
     private static JsonSerializerOptions SerializerOptions { get; }
+
     static EChartInstance()
     {
         SerializerOptions = new JsonSerializerOptions();
+
         SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, false));
         SerializerOptions.Converters.Add(new JsonHexColorConverter());
         SerializerOptions.Converters.Add(new JsonIntersectedConverter());
+        SerializerOptions.Converters.Add(new JsonThicknessConverter());
+
         SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     }
