@@ -1,4 +1,6 @@
-﻿namespace ECharts.Net;
+﻿using ECharts.Net.Util;
+
+namespace ECharts.Net;
 
 public class TitleTextStyle
 {
@@ -12,8 +14,7 @@ public class TitleTextStyle
     public double? Height { get; set; }
     public Color? TextBorderColor { get; set; }
     public double? TextBorderWidth { get; set; }
-    // TODO: support number and array TextBorderType
-    public BorderType? TextBorderType { get; set; }
+    public Intersected<BorderType, double, double[]>? TextBorderType { get; set; }
     public double? TextBorderDashOffset { get; set; }
     public Color? TextShadowColor { get; set; }
     public double? TextShadowBlur { get; set; }
