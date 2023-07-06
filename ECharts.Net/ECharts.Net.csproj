@@ -4,8 +4,32 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<PackageId>ECharts.Net.Core</PackageId>
+	<Version>0.0.1</Version>
+	<Authors>AZhrZho</Authors>
+	<Company>Token Team</Company>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	<Title>ECharts.Net</Title>
+	<PackageIcon>icon.png</PackageIcon>
+	<RepositoryUrl>https://github.com/AZhrZho/ECharts.Net.git</RepositoryUrl>
+	<PackageProjectUrl>https://github.com/AZhrZho/ECharts.Net</PackageProjectUrl>
+	<Description>The dependency package of ECharts.Net.WPF/Winform.</Description>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
-
+	
+  <ItemGroup>
+	<None Include="..\.github\icon.png">
+		<Pack>True</Pack>
+		<PackagePath>\</PackagePath>
+	</None>
+	<None Include="..\README.md">
+		<Pack>True</Pack>
+		<PackagePath>\</PackagePath>
+	</None>
+  </ItemGroup>
+	
   <ItemGroup>
     <None Remove="Resource\echarts_5.4.2.min.js" />
   </ItemGroup>

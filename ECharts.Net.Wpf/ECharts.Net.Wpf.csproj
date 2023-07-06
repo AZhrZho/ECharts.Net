@@ -4,7 +4,31 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+	<PackageId>ECharts.Net.Wpf</PackageId>
+	<Version>0.0.1</Version>
+	<Authors>AZhrZho</Authors>
+	<Company>Token Team</Company>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	<Title>ECharts.Net.Wpf</Title>
+	<PackageIcon>icon.png</PackageIcon>
+	<RepositoryUrl>https://github.com/AZhrZho/ECharts.Net.git</RepositoryUrl>
+	<PackageProjectUrl>https://github.com/AZhrZho/ECharts.Net</PackageProjectUrl>
+	<Description>Introduce ECharts into your WPF apps, powered by Microsoft Webview2.</Description>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\.github\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1823.32" />
@@ -12,6 +36,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ECharts.Net.Webview2\ECharts.Net.Webview2.csproj" />
+    <ProjectReference Include="..\ECharts.Net\ECharts.Net.csproj" />
   </ItemGroup>
 
 </Project>

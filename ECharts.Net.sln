@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{467C4413-C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECharts.Net.Demo.Wpf", "ECharts.Net.Demo.Wpf\ECharts.Net.Demo.Wpf.csproj", "{E77131F1-850E-4F1B-8524-855D61E6FF07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECharts.Net.Winform", "ECharts.Net.Winform\ECharts.Net.Winform.csproj", "{633E74DC-13C6-463E-B8F1-CF63F5D152C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECharts.Net.Winform", "ECharts.Net.Winform\ECharts.Net.Winform.csproj", "{633E74DC-13C6-463E-B8F1-CF63F5D152C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECharts.Net.Demo.Winform", "ECharts.Net.Demo.Winform\ECharts.Net.Demo.Winform.csproj", "{6F3D7FFA-5E95-4904-97A9-0FD61F80F1CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECharts.Net.Demo.Winform", "ECharts.Net.Demo.Winform\ECharts.Net.Demo.Winform.csproj", "{6F3D7FFA-5E95-4904-97A9-0FD61F80F1CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
