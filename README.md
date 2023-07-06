@@ -1,7 +1,5 @@
 # ECharts.Net - 在.NET应用中使用ECharts
-
-<br/>
-
+[![NuGet Badge](https://buildstats.info/nuget/ECharts.Net.Core?includePreReleases=true)](https://www.nuget.org/packages/ECharts.Net.Core/0.0.1)
 <div align=center><img height='100' src=".github/icon.png"></div>
 
 <br/>
