@@ -43,5 +43,8 @@
 | WinUI3支持 | 计划中 |
 | 序列化和互操作优化 | 计划中 |
 
+## 截图
+![screenshot](/.github/screenshot-wpf.png)
+
 ## 贡献
 对本项目有任何疑问，欢迎[提交Issue](https://github.com/AZhrZho/ECharts.Net/issues/new)，或直接发起Pull Request

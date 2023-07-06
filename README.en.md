@@ -43,5 +43,8 @@ This project is currently in the early stages of development, while the basic fu
 | Support for WinUI3 | Scheduled |
 | Serialization and interoperability optimizations | Scheduled |
 
+## Screenshot
+![screenshot](/.github/screenshot-wpf.png)
+
 ## Contributing
 Any [Issues](https://github.com/AZhrZho/ECharts.Net/issues/new) or PRs related to this project were welcomed.
