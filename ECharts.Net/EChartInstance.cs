@@ -44,6 +44,7 @@ public class EChartInstance
         SerializerOptions = new JsonSerializerOptions();
         SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, false));
         SerializerOptions.Converters.Add(new JsonHexColorConverter());
+        SerializerOptions.Converters.Add(new JsonIntersectedConverter());
         SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     }
