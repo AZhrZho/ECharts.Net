@@ -35,5 +35,5 @@ jobs:
       run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
       
     - name: Publish 
-      run: dotnet nuget push "packages/*.nupkg" -k ${{secrets.NUGET_KEY}} --skip-duplicate
+      run: dotnet nuget push "packages/*.nupkg" -k ${{secrets.NUGET_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
         
