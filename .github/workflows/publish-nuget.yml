@@ -24,16 +24,16 @@ jobs:
       
     - name: Build Core
       working-directory: "ECharts.Net"
-      run: 'dotnet build --configuration Release ; copy bin/Release/*.nupkg ../packages'
+      run: 'dotnet build --configuration Release ; xcopy bin/Release/*.nupkg ../packages /S /Y'
     - name: Build Webview2
       working-directory: "ECharts.Net.Webview2"
-      run: 'dotnet build --configuration Release ; copy bin/Release/*.nupkg ../packages'
+      run: 'dotnet build --configuration Release ; xcopy bin/Release/*.nupkg ../packages /S /Y'
     - name: Build WPF
       working-directory: "ECharts.Net.Wpf"
-      run: 'dotnet build --configuration Release ; copy bin/Release/*.nupkg ../packages'
+      run: 'dotnet build --configuration Release ; xcopy bin/Release/*.nupkg ../packages /S /Y'
     - name: Build Winform
       working-directory: "ECharts.Net.Winform"
-      run: 'dotnet build --configuration Release ; copy bin/Release/*.nupkg ../packages'
+      run: 'dotnet build --configuration Release ; xcopy bin/Release/*.nupkg ../packages /S /Y'
       
     - name: Publish 
       working-directory: "./"
