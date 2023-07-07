@@ -33,6 +33,11 @@ jobs:
   build-demos:
     runs-on: windows-latest
     steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
     - name: Build WPF Demo
       working-directory: "ECharts.Net.Demo.Wpf"
       run: dotnet build --configuration Release
@@ -42,6 +47,11 @@ jobs:
   run-test:
     runs-on: windows-latest
     steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
     - name: Run Unit Test
       working-directory: "ECharts.Net.UnitTest"
       run: dotnet test
