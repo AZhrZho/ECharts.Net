@@ -23,17 +23,16 @@ jobs:
       
     - name: Build Core
       working-directory: "ECharts.Net"
-      run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
+      run: 'dotnet build --configuration Release && copy bin/Release/*.nupkg ../packages'
     - name: Build Webview2
       working-directory: "ECharts.Net.Webview2"
-      run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
+      run: 'dotnet build --configuration Release && copy bin/Release/*.nupkg ../packages'
     - name: Build WPF
       working-directory: "ECharts.Net.Wpf"
-      run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
+      run: 'dotnet build --configuration Release && copy bin/Release/*.nupkg ../packages'
     - name: Build Winform
       working-directory: "ECharts.Net.Winform"
-      run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
+      run: 'dotnet build --configuration Release && copy bin/Release/*.nupkg ../packages'
       
     - name: Publish 
-      run: dotnet nuget push "packages/*.nupkg" -k ${{secrets.NUGET_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
-        
+      run: 'dotnet nuget push "packages/*.nupkg" -k ${{secrets.NUGET_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate'
