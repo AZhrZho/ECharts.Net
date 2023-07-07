@@ -55,4 +55,4 @@ public class EChartInstance
         SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         SerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     }
-}
+} 
