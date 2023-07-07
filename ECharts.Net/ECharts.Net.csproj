@@ -18,6 +18,12 @@
 	<Description>The dependency package of ECharts.Net.WPF/Winform.</Description>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Option\YAxis\**" />
+    <EmbeddedResource Remove="Option\YAxis\**" />
+    <None Remove="Option\YAxis\**" />
+  </ItemGroup>
 	
   <ItemGroup>
 	<None Include="..\.github\icon.png">
@@ -40,10 +46,6 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resource\echarts_5.4.2.min.js" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Option\YAxis\" />
   </ItemGroup>
 
 </Project>

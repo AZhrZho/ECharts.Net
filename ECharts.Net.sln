@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECharts.Net.Winform", "ECha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECharts.Net.Demo.Winform", "ECharts.Net.Demo.Winform\ECharts.Net.Demo.Winform.csproj", "{6F3D7FFA-5E95-4904-97A9-0FD61F80F1CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECharts.Net.UnitTest", "ECharts.Net.UnitTest\ECharts.Net.UnitTest.csproj", "{4B39575E-5ABA-4476-836E-8FA36C9648C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{6F3D7FFA-5E95-4904-97A9-0FD61F80F1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F3D7FFA-5E95-4904-97A9-0FD61F80F1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F3D7FFA-5E95-4904-97A9-0FD61F80F1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B39575E-5ABA-4476-836E-8FA36C9648C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B39575E-5ABA-4476-836E-8FA36C9648C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B39575E-5ABA-4476-836E-8FA36C9648C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B39575E-5ABA-4476-836E-8FA36C9648C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
