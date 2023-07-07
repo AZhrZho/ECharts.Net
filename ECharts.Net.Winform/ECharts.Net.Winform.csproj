@@ -7,7 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
 	<PackageId>ECharts.Net.Winform</PackageId>
-	<Version>0.0.1</Version>
+	<Version>0.0.1-alpha</Version>
 	<Authors>AZhrZho</Authors>
 	<Company>Token Team</Company>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
