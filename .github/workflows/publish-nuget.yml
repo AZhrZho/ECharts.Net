@@ -17,43 +17,23 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
+        
+    - name: Creat Package dir
+      run: mkdir packages
+      
     - name: Build Core
       working-directory: "ECharts.Net"
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
     - name: Build Webview2
       working-directory: "ECharts.Net.Webview2"
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
     - name: Build WPF
       working-directory: "ECharts.Net.Wpf"
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
     - name: Build Winform
       working-directory: "ECharts.Net.Winform"
-      run: dotnet build --configuration Release
+      run: dotnet build --configuration Release & copy bin/Release/*.nupkg ../packages
       
-    - name: Publish Core
-      uses: brandedoutcast/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: ECharts.Net/ECharts.Net.csproj
-        PACKAGE_NAME: ECharts.Net.Core
-        TAG_FORMAT: core-v*
-        NUGET_KEY: ${{secrets.NUGET_KEY}}
-    - name: Publish Webview2
-      uses: brandedoutcast/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: ECharts.Net.Webview2/ECharts.Net.Webview2.csproj
-        TAG_FORMAT: wv2-v*
-        NUGET_KEY: ${{secrets.NUGET_KEY}}
-    - name: Publish Winform
-      uses: brandedoutcast/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: ECharts.Net.Winform/ECharts.Net.Winform.csproj
-        TAG_FORMAT: winform-v*
-        NUGET_KEY: ${{secrets.NUGET_KEY}}
-    - name: Publish Wpf
-      uses: brandedoutcast/publish-nuget@v2
-      with:
-        PROJECT_FILE_PATH: ECharts.Net.Wpf/ECharts.Net.Wpf.csproj
-        TAG_FORMAT: wpf-v*
-        NUGET_KEY: ${{secrets.NUGET_KEY}}
-        
+    - name: Publish 
+      run: dotnet nuget push "packages/*.nupkg" -k ${{secrets.NUGET_KEY}} --skip-duplicate
         
