@@ -1,0 +1,33 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Build Core
+      working-directory: "ECharts.Net"
+      run: dotnet build --configuration Release
+    - name: Build Webview2
+      working-directory: "ECharts.Net.Webview2"
+      run: dotnet build --configuration Release
+    - name: Build WPF
+      working-directory: "ECharts.Net.Wpf"
+      run: dotnet build --configuration Release
+    - name: Build Winform
+      working-directory: "ECharts.Net.Winform"
+      run: dotnet build --configuration Release
+      
