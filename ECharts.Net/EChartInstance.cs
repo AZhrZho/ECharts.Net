@@ -28,6 +28,11 @@ public class EChartInstance
         webView.InvokeScriptAsync($"{instanceName}.setOption({optionInJson})");
     }
 
+    public void Resize()
+    {
+        webView.InvokeScriptAsync($"{instanceName}.resize()");
+    }
+
     public void RegisterScriptObject<T>()
     {
         var typeName = typeof(T).Name;

@@ -38,6 +38,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ECharts.Net.Webview2\ECharts.Net.Webview2.csproj" />
+    <ProjectReference Include="..\ECharts.Net\ECharts.Net.csproj" />
   </ItemGroup>
 
 </Project>

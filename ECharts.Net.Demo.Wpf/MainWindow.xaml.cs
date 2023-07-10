@@ -13,8 +13,8 @@ namespace ECharts.Net.Demo.Wpf
         {
             InitializeComponent();
             chart1.ChartOption = chartOption1;
-            chart2.ChartOptionInJs = chartOption2;
-            chart3.ChartOptionInJs = chartOption3;
+            //chart2.ChartOptionInJs = chartOption2;
+            //chart3.ChartOptionInJs = chartOption3;
         }
 
         private readonly static Option chartOption1 = new()
@@ -29,14 +29,14 @@ namespace ECharts.Net.Demo.Wpf
             {
                 Type = AxisType.Value
             },
-            Series = new List<Series>
+            Series = new Series[]
             {
                 new LineSeries()
                 {
                     Name = "Data",
                     Step = LineSeries.SeriesStep.Middle,
                     Type = SeriesType.Line,
-                    Data = Enumerable.Range(1, 10).Select(x => (double)x * 10).Select(x => x.ToString()).ToList()
+                    Data = Enumerable.Range(1, 10).Select(x => (double)x * 10).ToList()
                 }
             }
         };
