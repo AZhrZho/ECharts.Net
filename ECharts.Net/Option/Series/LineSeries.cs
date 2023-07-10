@@ -4,8 +4,13 @@ namespace ECharts.Net;
 
 using LineSeriesData = Intersected<IList<double>, IList<string>, IList<IList<Intersected<double, string>>>>;
 
-public class LineSeries : Series
+public partial class LineSeries : Series
 {
+    public LineSeries() 
+    { 
+        Type = SeriesType.Line;
+    }
+
     public int? XAxisIndex { get; set; }
     public int? YAxisIndex { get; set; }
     public int? PolarIndex { get; set; }
@@ -31,7 +36,7 @@ public class LineSeries : Series
     // LabelLayout
     // ItemStyle
     // LineStyle
-    // AreaStyle
+    public SeriesAreaStyle? AreaStyle { get; set; }
     // Emphasis
     // Select
     public bool? SelectedMode { get; set; }
@@ -54,5 +59,26 @@ public class LineSeries : Series
         Start,
         Middle,
         End,
+    }
+}
+
+public partial class LineSeries
+{
+    public class SeriesAreaStyle
+    {
+        public Color? Color { get; set; }
+        public Intersected<AreaOrigin, double>? Origin { get; set; }
+        public double? ShadowBlur { get; set; }
+        public Color? ShadowColor { get; set; }
+        public double? ShadowOffsetX { get; set; }
+        public double? ShadowOffsetY { get; set; }
+        public double? Opacity { get; set; }
+    }
+
+    public enum AreaOrigin
+    {
+        Auto,
+        Start,
+        End
     }
 }

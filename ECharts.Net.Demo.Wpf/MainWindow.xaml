@@ -4,17 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ECharts.Net.Demo.Wpf"
-        xmlns:echarts="clr-namespace:ECharts.Net.Wpf;assembly=ECharts.Net.Wpf"
+        xmlns:line="clr-namespace:ECharts.Net.Demo.Wpf.Sample.Line"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="870">
+        Title="MainWindow" Height="940" Width="1250">
+    <Window.Resources>
+        <Style x:Key="ChartStyle" TargetType="ContentControl">
+            <Setter Property="Margin" Value="16"/>
+            <Setter Property="Width" Value="375"/>
+            <Setter Property="Height" Value="300"/>
+        </Style>
+    </Window.Resources>
     <Grid Background="Gray">
-        <echarts:EChartsView Margin="32" x:Name="chart1"/>
-        <!--<ScrollViewer Margin="16" VerticalScrollBarVisibility="Auto">
-            <WrapPanel>
-                <echarts:EChartsView Margin="5" Width="400" Height="400" x:Name="chart1"/>
-                <echarts:EChartsView Margin="5" Width="400" Height="400" x:Name="chart2"/>
-                <echarts:EChartsView Margin="5" Width="400" Height="400" x:Name="chart3"/>
-            </WrapPanel>
-        </ScrollViewer>-->
+        <WrapPanel Orientation="Horizontal">
+            <line:BasicLineChart Style="{StaticResource ChartStyle}"/>
+            <line:SmoothedLineChart Style="{StaticResource ChartStyle}"/>
+            <line:BasicAreaChart Style="{StaticResource ChartStyle}"/>
+            <line:StackedLineChart Style="{StaticResource ChartStyle}"/>
+        </WrapPanel>
     </Grid>
 </Window>
