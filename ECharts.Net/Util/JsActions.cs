@@ -5,6 +5,7 @@ namespace ECharts.Net;
 
 public abstract class JsActionBase : JsDelegate
 {
+    // TODO refactor JsActions
     protected static string GetRawJs(Expression expression)
     {
         var hostObjectName = expression.Type.GenericTypeArguments[0].Name;
@@ -89,41 +90,41 @@ public class JsAction<T1, T2, T3, T4> : JsActionBase
     }
 }
 
-public class RegisterdJsAction<THostObject> : JsAction
+public class RegisterdJsAction : JsAction
 {
-    public RegisterdJsAction(Expression<Func<THostObject, Action>> methodSelector)
+    public RegisterdJsAction(Expression<Func<Action>> methodSelector)
     {
         RawJsFunctionString = GetRawJs(methodSelector);
     }
 }
 
-public class RegisterdJsAction<THostObject, T1> : JsAction<T1>
+public class RegisterdJsAction<T1> : JsAction<T1>
 {
-    public RegisterdJsAction(Expression<Func<THostObject, Action<T1>>> methodSelector)
+    public RegisterdJsAction(Expression<Func<Action<T1>>> methodSelector)
     {
         RawJsFunctionString = GetRawJs(methodSelector);
     }
 }
 
-public class RegisterdJsAction<THostObject, T1, T2> : JsAction<T1, T2>
+public class RegisterdJsAction<T1, T2> : JsAction<T1, T2>
 {
-    public RegisterdJsAction(Expression<Func<THostObject, Action<T1, T2>>> methodSelector)
+    public RegisterdJsAction(Expression<Func<Action<T1, T2>>> methodSelector)
     {
         RawJsFunctionString = GetRawJs(methodSelector);
     }
 }
 
-public class RegisterdJsAction<THostObject, T1, T2, T3> : JsAction<T1, T2, T3>
+public class RegisterdJsAction<T1, T2, T3> : JsAction<T1, T2, T3>
 {
-    public RegisterdJsAction(Expression<Func<THostObject, Action<T1, T2, T3>>> methodSelector)
+    public RegisterdJsAction(Expression<Func<Action<T1, T2, T3>>> methodSelector)
     {
         RawJsFunctionString = GetRawJs(methodSelector);
     }
 }
 
-public class RegisterdJsAction<THostObject, T1, T2, T3, T4> : JsAction<T1, T2, T3, T4>
+public class RegisterdJsAction<T1, T2, T3, T4> : JsAction<T1, T2, T3, T4>
 {
-    public RegisterdJsAction(Expression<Func<THostObject, Action<T1, T2, T3, T4>>> methodSelector)
+    public RegisterdJsAction(Expression<Func<Action<T1, T2, T3, T4>>> methodSelector)
     {
         RawJsFunctionString = GetRawJs(methodSelector);
     }

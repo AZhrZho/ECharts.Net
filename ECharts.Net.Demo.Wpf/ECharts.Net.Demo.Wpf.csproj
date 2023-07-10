@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ECharts.Net.Demo.JsInterop\ECharts.Net.Demo.JsInterop.csproj" />
     <ProjectReference Include="..\ECharts.Net.Wpf\ECharts.Net.Wpf.csproj" />
   </ItemGroup>
 

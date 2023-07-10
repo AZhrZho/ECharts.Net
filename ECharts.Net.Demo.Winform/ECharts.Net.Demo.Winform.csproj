@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ECharts.Net.Demo.JsInterop\ECharts.Net.Demo.JsInterop.csproj" />
     <ProjectReference Include="..\ECharts.Net.Webview2\ECharts.Net.Webview2.csproj" />
     <ProjectReference Include="..\ECharts.Net.Winform\ECharts.Net.Winform.csproj" />
     <ProjectReference Include="..\ECharts.Net\ECharts.Net.csproj" />
