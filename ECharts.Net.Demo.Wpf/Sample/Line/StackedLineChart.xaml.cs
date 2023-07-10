@@ -14,10 +14,19 @@ public partial class StackedLineChart : UserControl
             {
                 Text = "Stacked Line"
             },
-            // TODO: Demo: StackedLineChart - Add ToolTip, Legend, Grid, Toolbox
-            // ToolTip
+            Tooltip = new()
+            {
+                Trigger = TooltipTrigger.Axis
+            },
+            // TODO: Demo: StackedLineChart - Add Legend, Toolbox
             // Legend
-            // Grid
+            Grid = new Grid
+            {
+                Left = "3%",
+                Right = "4%",
+                Bottom = "3%",
+                ContainLabel = true
+            },
             // Toolbox
             XAxis = new()
             {

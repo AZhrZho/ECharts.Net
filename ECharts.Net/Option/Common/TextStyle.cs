@@ -2,7 +2,7 @@
 
 namespace ECharts.Net;
 
-public class TitleTextStyle
+public class TextStyle
 {
     public Color? Color { get; set; }
     public FontStyle? FontStyle { get; set; }
