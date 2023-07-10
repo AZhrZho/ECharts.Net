@@ -13,8 +13,8 @@ namespace ECharts.Net.Demo.Wpf
         {
             InitializeComponent();
             chart1.ChartOption = chartOption1;
-            chart2.ChartOptionInJs = chartOption2;
-            chart3.ChartOptionInJs = chartOption3;
+            //chart2.ChartOptionInJs = chartOption2;
+            //chart3.ChartOptionInJs = chartOption3;
         }
 
         private readonly static Option chartOption1 = new()

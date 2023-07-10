@@ -8,12 +8,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="870">
     <Grid Background="Gray">
-        <ScrollViewer Margin="16" VerticalScrollBarVisibility="Auto">
+        <echarts:EChartsView Margin="32" x:Name="chart1"/>
+        <!--<ScrollViewer Margin="16" VerticalScrollBarVisibility="Auto">
             <WrapPanel>
                 <echarts:EChartsView Margin="5" Width="400" Height="400" x:Name="chart1"/>
                 <echarts:EChartsView Margin="5" Width="400" Height="400" x:Name="chart2"/>
                 <echarts:EChartsView Margin="5" Width="400" Height="400" x:Name="chart3"/>
             </WrapPanel>
-        </ScrollViewer>
+        </ScrollViewer>-->
     </Grid>
 </Window>

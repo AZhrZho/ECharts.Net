@@ -10,8 +10,8 @@ public partial class EChartsView : UserControl
     public EChartsView()
     {
         InitializeComponent();
-        webView.CoreWebView2InitializationCompleted += WebView_CoreWebView2InitializationCompleted;
         webView.EnsureCoreWebView2Async();
+        webView.CoreWebView2InitializationCompleted += WebView_CoreWebView2InitializationCompleted;
     }
 
     public event EventHandler? EChartsReady;
@@ -36,11 +36,12 @@ public partial class EChartsView : UserControl
         {
             Dispatcher.Invoke(() => 
             {
+                WebViewProxy.InvokeScriptAsync("window.addEventListener('resize', function(){ chart.resize() })");
                 EChart = new EChartInstance(WebViewProxy);
                 if (ChartOption is not null) EChart.SetOption(ChartOption);
                 else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs);
                 EChartsReady?.Invoke(this, new());
-            });            
+            });
         });
     }
 }

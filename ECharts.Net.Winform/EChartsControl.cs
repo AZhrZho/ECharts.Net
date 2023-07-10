@@ -32,6 +32,7 @@ public partial class EChartsControl : UserControl
         {
             webView.Invoke(() =>
             {
+                WebViewProxy.InvokeScriptAsync("window.addEventListener('resize', function(){ chart.resize() })");
                 EChart = new EChartInstance(WebViewProxy);
                 if (ChartOption is not null) EChart.SetOption(ChartOption);
                 else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs);
@@ -43,5 +44,6 @@ public partial class EChartsControl : UserControl
     private void EChartsControl_SizeChanged(object? sender, EventArgs e)
     {
         webView.Size = this.Size;
+        EChart?.Resize();
     }
 }
