@@ -2,6 +2,8 @@
 
 namespace ECharts.Net;
 
+using LineSeriesData = Intersected<IList<double>, IList<string>, IList<IList<Intersected<double, string>>>>;
+
 public class LineSeries : Series
 {
     public int? XAxisIndex { get; set; }
@@ -42,7 +44,7 @@ public class LineSeries : Series
     public string? SeriesLayoutBy { get; set; }
     public int? DatasetIndex { get; set; }
     public int? DataGroupId { get; set; }
-    public new IList<string>? Data { get; set; }
+    public new LineSeriesData? Data { get; set; }
     // MarkPoint
     // MarkLine
     // MarkArea
