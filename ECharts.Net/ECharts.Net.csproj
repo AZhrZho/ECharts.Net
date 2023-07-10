@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<PackageId>ECharts.Net.Core</PackageId>
-	<Version>0.0.2-alpha</Version>
+	<Version>0.0.2</Version>
 	<Authors>AZhrZho</Authors>
 	<Company>Token Team</Company>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
