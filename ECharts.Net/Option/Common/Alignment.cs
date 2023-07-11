@@ -9,3 +9,9 @@ public enum VerticalAlignment
 {
     Auto, Top, Middle, Bottom
 }
+
+public enum Position
+{
+    Start,
+    End
+}

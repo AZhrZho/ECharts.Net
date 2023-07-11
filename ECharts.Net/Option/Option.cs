@@ -5,6 +5,7 @@ namespace ECharts.Net;
 public class Option
 {
     public Intersected<Title, IList<Title>>? Title { get; set; }
+    public Intersected<Legend, IList<Legend>>? Legend { get; set; }
     public Intersected<Grid, IList<Grid>> Grid { get; set; }
     public XAxis? XAxis { get; set; }
     public YAxis? YAxis { get; set; }

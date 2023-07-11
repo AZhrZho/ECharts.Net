@@ -51,11 +51,55 @@ public class Legend
     public LegendTextStyle? TextStyle { get; set; }
     public Tooltip? Tooltip { get; set; }
     public Intersected<Symbol, Uri>? Icon { get; set; }
+    public IList<LegendData>? Data { get; set; }
+    public Color? BackgroundColor { get; set; }
+    public Color? BorderColor { get; set; }
+    public double? BorderWidth { get; set; }
+    public double? BorderRadius { get; set; }
+    public double? ShadowBlur { get; set; }
+    public Color? ShadowColor { get; set; }
+    public double? ShadowOffsetX { get; set; }
+    public double? ShadowOffsetY { get; set; }
+    public int? ScrollDataIndex { get; set; }
+    public double? PageButtonItemGap { get; set; }
+    public double? PageButtonGap { get; set; }
+    public Position? PageButtonPosition { get; set; }
+    public string? PageFormatter { get; set; }
+    public PageIcon? PageIcons { get; set; }
+    public Color? PageIconColor { get; set; }
+    public Color? PageIconInactiveColor { get; set; }
+    public Intersected<double, IList<double>> PageIconSize { get; set; }
+    public TextStyle? PageTextStyle { get; set; }
+    public bool? Animation { get; set; }
+    public double? AnimationDurationUpdate { get; set; }
+    public Emphasis? Emphasis { get; set; }
+    public Intersected<bool, IList<LegendSelectorType>, IList<LegendSelector>> Selector { get; set; }
+    // TODO: Legend.SelectorLabel
+    public Position? SelectorPosition { get; set; }
+    public double? SelectorItemGap { get; set; }
+    public double? SelectorButtonGap { get; set; }
 }
-
 
 public enum LegendType
 {
     Plain,
     Scroll
+}
+
+public struct PageIcon
+{
+    public IList<Intersected<string, Uri>> Horizontal { get; set; }
+    public IList<Intersected<string, Uri>> Vertical { get; set; }
+}
+
+public struct LegendSelector
+{
+    public LegendSelectorType? Type { get; set; }
+    public string? Title { get; set; }
+}
+
+public enum LegendSelectorType
+{
+    All,
+    Inverse
 }
