@@ -7,3 +7,11 @@ public enum AxisType
     Time,
     Log
 }
+
+public enum AxisName
+{
+    X,
+    Y,
+    Radius,
+    Angle
+}
