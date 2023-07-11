@@ -29,8 +29,13 @@ public partial class StackedLineChart : UserControl
                 Bottom = "3%",
                 ContainLabel = true
             },
-            // TODO: Demo: StackedLineChart - Add Toolbox
-            // Toolbox
+            Toolbox = new()
+            {
+                Feature = new Feature
+                {
+                    SaveAsImage = new()
+                }
+            },
             XAxis = new()
             {
                 Type = AxisType.Category,
