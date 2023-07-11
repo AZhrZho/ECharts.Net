@@ -41,18 +41,6 @@ public enum SeriesCoordinateSystem
     Polar
 }
 
-public enum SeriesSymbol
-{
-    None,
-    Circle,
-    Rect,
-    RoundRect,
-    Triangle,
-    Diamond,
-    Pin,
-    Arrow,
-}
-
 public enum SeriesStackStrategy
 {
     SameSign,

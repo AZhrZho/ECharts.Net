@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<PackageId>ECharts.Net.Webview2</PackageId>
-	<Version>0.0.2</Version>
+	<Version>0.0.3-alpha</Version>
 	<Authors>AZhrZho</Authors>
 	<Company>Token Team</Company>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>

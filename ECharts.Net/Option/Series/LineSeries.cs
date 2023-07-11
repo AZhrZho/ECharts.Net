@@ -15,7 +15,7 @@ public partial class LineSeries : Series
     public int? YAxisIndex { get; set; }
     public int? PolarIndex { get; set; }
     // TODO Support Func for Symbol
-    public Intersected<SeriesSymbol, Uri>? Symbol { get; set; }
+    public Intersected<Symbol, Uri>? Symbol { get; set; }
     // TODO Support Array | Function SymbolSize
     public double? SymbolSize { get; set; }
     public double? SymbolRotate { get; set; }
