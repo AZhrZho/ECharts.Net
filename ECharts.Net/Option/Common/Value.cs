@@ -1,6 +1,7 @@
 ﻿namespace ECharts.Net;
 
-public enum InheritValue
+public enum Value
 {
-    Inherit
+    Inherit,
+    Auto
 }

@@ -21,16 +21,16 @@ public class Legend
     public double? ItemGap { get; set; }
     public double? ItemWidth { get; set; }
     public double? ItemHeight { get; set; }
-    public Intersected<InheritValue, ItemStyle>? ItemStyle { get; set; }
-    public Intersected<InheritValue, LineStyle>? LineStyle { get; set; }
-    public Intersected<InheritValue, double>? SymbolRotate { get; set; }
+    public Intersected<Value, ItemStyle>? ItemStyle { get; set; }
+    public Intersected<Value, LineStyle>? LineStyle { get; set; }
+    public Intersected<Value, double>? SymbolRotate { get; set; }
 
     // TODO: support Function for Formatter
     public string? Formatter { get; set; }
     public Intersected<SelectMode, bool>? SelectedMode { get; set; }
     public Color? InactiveColor { get; set; }
     public Color? InactiveBorderColor { get; set; }
-    public Intersected<InheritValue, string> InactiveBorderWidth { get; set; }
+    public Intersected<Value, string> InactiveBorderWidth { get; set; }
 
     /// <summary>
     /// State table of selected legend.
