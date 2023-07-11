@@ -37,7 +37,7 @@ public partial class LineSeries : Series
     // ItemStyle
     // LineStyle
     public SeriesAreaStyle? AreaStyle { get; set; }
-    // Emphasis
+    public Emphasis? Emphasis { get; set; }
     // Select
     public bool? SelectedMode { get; set; }
     public Intersected<bool, double>? Smooth { get;set; }
