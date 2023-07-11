@@ -18,8 +18,10 @@ public partial class StackedLineChart : UserControl
             {
                 Trigger = TooltipTrigger.Axis
             },
-            // TODO: Demo: StackedLineChart - Add Legend, Toolbox
-            // Legend
+            Legend = new Legend()
+            {
+                Data = new LegendData[] { "Email", "Union Ads", "Video Ads", "Direct", "Search Engine" }
+            },
             Grid = new Grid
             {
                 Left = "3%",
@@ -27,6 +29,7 @@ public partial class StackedLineChart : UserControl
                 Bottom = "3%",
                 ContainLabel = true
             },
+            // TODO: Demo: StackedLineChart - Add Toolbox
             // Toolbox
             XAxis = new()
             {

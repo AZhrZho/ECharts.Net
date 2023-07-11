@@ -10,4 +10,9 @@ public class LegendData
     public Intersected<Value, ItemStyle> LineStyle { get; set; }
     public Intersected<Value, double> SymbolRotate { get; set; }
     public TextStyle? TextStyle { get; set; }
+
+    public static implicit operator LegendData(string name)
+    {
+        return new LegendData { Name = name };
+    }
 }
