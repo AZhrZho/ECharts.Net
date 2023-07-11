@@ -34,10 +34,10 @@ public partial class LineSeries : Series
     // EndLabel
     // LabelLine
     // LabelLayout
-    // ItemStyle
-    // LineStyle
+    public ItemStyle? ItemStyle { get; set; }
+    public LineStyle? LineStyle { get; set; }
     public SeriesAreaStyle? AreaStyle { get; set; }
-    public Emphasis? Emphasis { get; set; }
+    public LineSeriesEmphasis? Emphasis { get; set; }
     // Select
     public bool? SelectedMode { get; set; }
     public Intersected<bool, double>? Smooth { get;set; }
@@ -75,10 +75,37 @@ public partial class LineSeries
         public double? Opacity { get; set; }
     }
 
+    public class LineSeriesEmphasis
+    {
+        public bool? Disabled { get; set; }
+        public Intersected<bool, double>? Scale { get; set; }
+        public FocusType? Focus { get; set; }
+        public BlurScope? BlurScope { get; set; }
+        // TODO: LineSeriesEmphasis.Label & EndLabel
+        public ItemStyle? ItemStyle { get; set; }
+        public LineStyle? LineStyle { get; set; }
+        public SeriesAreaStyle? AreaStyle { get; set; }
+
+    }
+
     public enum AreaOrigin
     {
         Auto,
         Start,
         End
+    }
+
+    public enum FocusType
+    {
+        None,
+        Self,
+        Series
+    }
+
+    public enum BlurScope
+    {
+        CoordinateSystem,
+        Series,
+        Global
     }
 }

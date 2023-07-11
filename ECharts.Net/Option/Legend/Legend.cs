@@ -72,12 +72,17 @@ public class Legend
     public TextStyle? PageTextStyle { get; set; }
     public bool? Animation { get; set; }
     public double? AnimationDurationUpdate { get; set; }
-    public Emphasis? Emphasis { get; set; }
+    public LegendEmphasis? Emphasis { get; set; }
     public Intersected<bool, IList<LegendSelectorType>, IList<LegendSelector>> Selector { get; set; }
     // TODO: Legend.SelectorLabel
     public Position? SelectorPosition { get; set; }
     public double? SelectorItemGap { get; set; }
     public double? SelectorButtonGap { get; set; }
+}
+
+public class LegendEmphasis
+{
+    // TODO implement Legend.Emphasis
 }
 
 public enum LegendType
