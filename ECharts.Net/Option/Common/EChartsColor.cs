@@ -7,18 +7,17 @@ public abstract class EChartsColor
         return new SolidColor() { A = color.A, R = color.R, G = color.G, B = color.B };
     }
 
-    public static SolidColor Argb(byte a, byte r, byte g, byte b)
+    public static SolidColor Rgb(byte r, byte g, byte b)
     {
-        return new SolidColor { A = a, R = r, G= g, B = b };
+        return new SolidColor { A = 255, R = r, G= g, B = b };
     }
 
     public static SolidColor Hex(uint hex)
     {
-        var a = hex >> 24;
         var r = (hex >> 16) & 0xFF;
         var g = (hex >> 8) & 0xFF;
         var b = hex & 0xFF;
-        return Argb((byte)a, (byte)r, (byte)g, (byte)b);
+        return Rgb((byte)r, (byte)g, (byte)b);
     }
 }
 
@@ -31,7 +30,7 @@ public class SolidColor : EChartsColor
 
     public uint ToArgb()
     {
-        return (uint)(A << 24) | (uint)(R << 16) | (uint)(G << 8) | B;
+        return (uint)(R << 16) | (uint)(G << 8) | B;
     }
 
     public static implicit operator SolidColor(Color color)

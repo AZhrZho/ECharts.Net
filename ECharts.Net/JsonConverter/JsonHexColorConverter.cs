@@ -11,7 +11,7 @@ internal class JsonHexColorConverter : JsonConverter<EChartsColor>
     {
         if (value is SolidColor color) 
         { 
-            writer.WriteStringValue($"#{color.ToArgb():X8}");
+            writer.WriteStringValue($"#{color.ToArgb():X6}");
         }
         else
         {
@@ -32,6 +32,6 @@ internal class JsonHexSolidColorConverter : JsonConverter<SolidColor>
 
     public override void Write(Utf8JsonWriter writer, SolidColor value, JsonSerializerOptions options)
     {
-        writer.WriteStringValue($"#{value.ToArgb():X8}");
+        writer.WriteStringValue($"#{value.ToArgb():X6}");
     }
 }

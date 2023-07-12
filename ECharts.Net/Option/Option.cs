@@ -12,4 +12,5 @@ public class Option
     public Tooltip? Tooltip { get; set; }
     public Toolbox? Toolbox { get; set; }
     public IList<Series>? Series { get; set; }
+    public IList<EChartsColor>? Color { get; set; }
 }
