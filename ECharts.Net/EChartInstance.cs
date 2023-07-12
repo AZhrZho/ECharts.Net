@@ -53,6 +53,7 @@ public class EChartInstance
 
         SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, false));
         SerializerOptions.Converters.Add(new JsonHexColorConverter());
+        SerializerOptions.Converters.Add(new JsonHexSolidColorConverter());
         SerializerOptions.Converters.Add(new JsonIntersectedConverter());
         SerializerOptions.Converters.Add(new JsonThicknessConverter());
         SerializerOptions.Converters.Add(new JsonSeriesListConverter());

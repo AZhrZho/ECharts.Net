@@ -9,8 +9,8 @@ public class Tooltip
     public TooltipPosition? Position { get; set; }
     public string? Formatter { get; set; }
     public string? ValueFormatter { get; set; }
-    public Color? BackgroundColor { get; set; }
-    public Color? BorderColor { get; set; }
+    public EChartsColor? BackgroundColor { get; set; }
+    public EChartsColor? BorderColor { get; set; }
     public double? BorderWidth { get; set; }
     public Thickness? Padding { get; set; }
     public TextStyle? TextStyle { get; set; }

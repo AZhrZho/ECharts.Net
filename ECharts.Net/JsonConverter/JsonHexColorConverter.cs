@@ -1,16 +1,37 @@
 ﻿namespace ECharts.Net.JsonConverter;
 
-internal class JsonHexColorConverter : JsonConverter<Color>
+internal class JsonHexColorConverter : JsonConverter<EChartsColor>
 {
-    public override Color Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override EChartsColor Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        var hexColorString = Encoding.UTF8.GetString(reader.ValueSpan[1..]);
-        var intColor = int.Parse(hexColorString, System.Globalization.NumberStyles.HexNumber);
-        return Color.FromArgb(intColor);
+        throw new NotImplementedException();
     }
 
-    public override void Write(Utf8JsonWriter writer, Color value, JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, EChartsColor value, JsonSerializerOptions options)
     {
-        writer.WriteStringValue($"#{value.ToArgb():X}");
+        if (value is SolidColor color) 
+        { 
+            writer.WriteStringValue($"#{color.ToArgb():X8}");
+        }
+        else
+        {
+            var type = value.GetType();
+            var converter = options.GetConverter(type);
+            var writeMethod = converter.GetType().GetMethod("Write", new Type[] { typeof(Utf8JsonWriter), type, typeof(JsonSerializerOptions) });
+            writeMethod?.Invoke(converter, new object[] { writer, value, options });
+        }
+    }
+}
+
+internal class JsonHexSolidColorConverter : JsonConverter<SolidColor>
+{
+    public override SolidColor Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Write(Utf8JsonWriter writer, SolidColor value, JsonSerializerOptions options)
+    {
+        writer.WriteStringValue($"#{value.ToArgb():X8}");
     }
 }

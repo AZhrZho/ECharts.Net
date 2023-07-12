@@ -28,8 +28,8 @@ public class Legend
     // TODO: support Function for Formatter
     public string? Formatter { get; set; }
     public Intersected<SelectMode, bool>? SelectedMode { get; set; }
-    public Color? InactiveColor { get; set; }
-    public Color? InactiveBorderColor { get; set; }
+    public EChartsColor? InactiveColor { get; set; }
+    public EChartsColor? InactiveBorderColor { get; set; }
     public Intersected<Value, string> InactiveBorderWidth { get; set; }
 
     /// <summary>
@@ -52,12 +52,12 @@ public class Legend
     public Tooltip? Tooltip { get; set; }
     public Intersected<Symbol, Uri>? Icon { get; set; }
     public IList<LegendData>? Data { get; set; }
-    public Color? BackgroundColor { get; set; }
-    public Color? BorderColor { get; set; }
+    public EChartsColor? BackgroundColor { get; set; }
+    public EChartsColor? BorderColor { get; set; }
     public double? BorderWidth { get; set; }
     public double? BorderRadius { get; set; }
     public double? ShadowBlur { get; set; }
-    public Color? ShadowColor { get; set; }
+    public EChartsColor? ShadowColor { get; set; }
     public double? ShadowOffsetX { get; set; }
     public double? ShadowOffsetY { get; set; }
     public int? ScrollDataIndex { get; set; }
@@ -66,8 +66,8 @@ public class Legend
     public Position? PageButtonPosition { get; set; }
     public string? PageFormatter { get; set; }
     public PageIcon? PageIcons { get; set; }
-    public Color? PageIconColor { get; set; }
-    public Color? PageIconInactiveColor { get; set; }
+    public EChartsColor? PageIconColor { get; set; }
+    public EChartsColor? PageIconInactiveColor { get; set; }
     public Intersected<double, IList<double>> PageIconSize { get; set; }
     public TextStyle? PageTextStyle { get; set; }
     public bool? Animation { get; set; }

@@ -4,8 +4,8 @@ namespace ECharts.Net;
 
 public class IconStyle
 {
-    public Intersected<Value, Color>? Color { get; set; }
-    public Intersected<Value, Color>? BorderColor { get; set; }
+    public Intersected<Value, EChartsColor>? Color { get; set; }
+    public Intersected<Value, EChartsColor>? BorderColor { get; set; }
     public Intersected<Value, double>? BorderWidth { get; set; }
     public Intersected<BorderType, double, double[]>? BorderType { get; set; }
     public double? BorderDashOffset { get; set; }
