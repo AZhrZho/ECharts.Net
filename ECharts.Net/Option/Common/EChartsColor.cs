@@ -52,7 +52,7 @@ public class LinearGradientColor : EChartsColor
 
 public class RadialGradientColor : EChartsColor
 {
-    public string Type { get; } = "linear";
+    public string Type { get; } = "radial";
     public double X { get; set; }
     public double Y { get; set; }
     public double R { get; set; }
