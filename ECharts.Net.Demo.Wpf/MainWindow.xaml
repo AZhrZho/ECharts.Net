@@ -21,6 +21,7 @@
             <line:SmoothedLineChart Style="{StaticResource ChartStyle}"/>
             <line:BasicAreaChart Style="{StaticResource ChartStyle}"/>
             <line:StackedLineChart Style="{StaticResource ChartStyle}"/>
+            <line:StackedAreaChart Style="{StaticResource ChartStyle}"/>
         </WrapPanel>
     </Grid>
 </Window>
