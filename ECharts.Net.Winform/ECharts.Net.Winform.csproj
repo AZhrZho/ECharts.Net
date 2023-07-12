@@ -5,9 +5,8 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-
 	<PackageId>ECharts.Net.Winform</PackageId>
-	<Version>0.0.3-alpha</Version>
+	<Version>0.0.3</Version>
 	<Authors>AZhrZho</Authors>
 	<Company>Token Team</Company>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
