@@ -30,20 +30,20 @@ public class AxisPointerLabel : TextStyle
     public string? Formatter { get; set; }
     public double? Margin { get; set; }
     public Thickness? Padding { get; set; }
-    public Color? BackgroundColor { get; set; }
-    public Color? BorderColor { get; set; }
+    public EChartsColor? BackgroundColor { get; set; }
+    public EChartsColor? BorderColor { get; set; }
     public double? BorderWidth { get; set; }
     public double? ShadowBlur { get; set; }
-    public Color? ShadowColor { get; set; }
+    public EChartsColor? ShadowColor { get; set; }
     public double? ShadowOffsetX { get; set; }
     public double? ShadowOffsetY { get; set; }
 }
 
 public class ShadowStyle
 {
-    public Color? Color { get; set; }
+    public EChartsColor? Color { get; set; }
     public double? ShadowBlur { get; set; }
-    public Color? ShadowColor { get; set; }
+    public EChartsColor? ShadowColor { get; set; }
     public double? ShadowOffsetX { get; set; }
     public double? ShadowOffsetY { get; set; }
     public double? Opacity { get; set; }
@@ -51,7 +51,7 @@ public class ShadowStyle
 
 public class CrossStyle
 {
-    public Color? Color { get; set; }
+    public EChartsColor? Color { get; set; }
     public double? Width { get; set; }
     public Intersected<BorderType, double, double[]>? Type { get; set; }
     public double? DashOffset { get; set; }
@@ -59,7 +59,7 @@ public class CrossStyle
     public LineJoin? Join { get; set; }
     public double? MiterLimit { get; set; }
     public double? ShadowBlur { get; set; }
-    public Color? ShadowColor { get; set; }
+    public EChartsColor? ShadowColor { get; set; }
     public double? ShadowOffsetX { get; set; }
     public double? ShadowOffsetY { get; set; }
     public double? Opacity { get; set; }

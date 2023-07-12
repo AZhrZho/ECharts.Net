@@ -15,11 +15,11 @@ public class Grid
     public Intersected<string, double>? Width { get; set; }
     public Intersected<string, double>? Height { get; set; }
     public bool? ContainLabel { get; set; }
-    public Color? BackgroudColor { get; set; }
-    public Color? BorderColor { get; set; }
+    public EChartsColor? BackgroudColor { get; set; }
+    public EChartsColor? BorderColor { get; set; }
     public double? BorderWidth { get; set; }
     public double? ShadowBlur { get; set; }
-    public Color? ShadowColor { get; set; }
+    public EChartsColor? ShadowColor { get; set; }
     public double? ShadowOffsetX { get; set; }
     public double? ShadowOffsetY { get; set; }
     public Tooltip? Tooltip { get; set; }

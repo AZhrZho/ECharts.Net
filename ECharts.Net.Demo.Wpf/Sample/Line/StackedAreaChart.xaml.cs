@@ -26,7 +26,7 @@ namespace ECharts.Net.Demo.Wpf.Sample.Line
                         Type = PointerType.Cross,
                         Label = new()
                         {
-                            BackgroundColor = Color.FromArgb(0xff, 0x6a, 0x79, 0x85)
+                            BackgroundColor = EChartsColor.Argb(0xff, 0x6a, 0x79, 0x85)
                         }
                     },
                 },

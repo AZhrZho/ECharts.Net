@@ -4,7 +4,7 @@ namespace ECharts.Net;
 
 public class TextStyle
 {
-    public Color? Color { get; set; }
+    public EChartsColor? Color { get; set; }
     public FontStyle? FontStyle { get; set; }
     public FontWeight? FontWeight { get; set; }
     public string? FontFamily { get; set; }
@@ -12,11 +12,11 @@ public class TextStyle
     public double? LineHeight { get; set; }
     public double? Width { get; set; }
     public double? Height { get; set; }
-    public Color? TextBorderColor { get; set; }
+    public EChartsColor? TextBorderColor { get; set; }
     public double? TextBorderWidth { get; set; }
     public Intersected<BorderType, double, double[]>? TextBorderType { get; set; }
     public double? TextBorderDashOffset { get; set; }
-    public Color? TextShadowColor { get; set; }
+    public EChartsColor? TextShadowColor { get; set; }
     public double? TextShadowBlur { get; set; }
     public double? TextShadowOffsetX { get; set; }
     public double? TextShadowOffsetY { get; set; }

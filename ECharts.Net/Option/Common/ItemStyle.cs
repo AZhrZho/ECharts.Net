@@ -7,8 +7,8 @@ namespace ECharts.Net;
 
 public class ItemStyle
 {
-    public Intersected<Value, Color>? Color { get; set; }
-    public Intersected<Value, Color>? BorderColor { get; set; }
+    public Intersected<Value, EChartsColor>? Color { get; set; }
+    public Intersected<Value, EChartsColor>? BorderColor { get; set; }
     public Intersected<Value, double>? BorderWidth { get; set; }
     public Intersected<BorderType, double, double[]>? BorderType { get; set; }
     public double? BorderDashOffset { get; set; }
@@ -27,8 +27,8 @@ public class ItemDecal
     public SymbolType? Symbol { get; set; }
     public double? SymbolSize { get; set; }
     public bool? SymbolKeepAspect { get; set; }
-    public Color? Color { get; set; }
-    public Color? BorderColor { get; set; }
+    public EChartsColor? Color { get; set; }
+    public EChartsColor? BorderColor { get; set; }
     public DashArrayType? DashArrayX { get; set; }
     public DashArrayType? DashArrayY { get; set; }
     public double? Rotation { get; set; }

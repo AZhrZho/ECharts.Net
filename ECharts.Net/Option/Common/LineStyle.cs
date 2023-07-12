@@ -4,7 +4,7 @@ namespace ECharts.Net;
 
 public class LineStyle
 {
-    public Intersected<Value, Color>? Color { get; set; }
+    public Intersected<Value, EChartsColor>? Color { get; set; }
     public Intersected<Value, double>? Width { get; set; }
     public Intersected<BorderType, double, double[]>? Type { get; set; }
     public double? DashOffset { get; set; }

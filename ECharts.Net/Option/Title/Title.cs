@@ -26,12 +26,12 @@ public class Title
     public Intersected<string, double>? Top { get; set; }
     public Intersected<string, double>? Right { get; set; }
     public Intersected<string, double>? Bottom { get; set; }
-    public Color? BackgroundColor { get; set; }
-    public Color? BorderColor { get; set; }
+    public EChartsColor? BackgroundColor { get; set; }
+    public EChartsColor? BorderColor { get; set; }
     public double? BorderWidth { get; set;}
     public Thickness? BorderRadius { get; set; }
     public double? ShadowBlur { get; set; }
-    public Color? ShadowColor { get; set; }
+    public EChartsColor? ShadowColor { get; set; }
     public double? ShadowOffsetX { get; set; }
     public double? ShadowOffsetY { get; set; }
 }
