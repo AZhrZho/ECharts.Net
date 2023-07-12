@@ -30,7 +30,7 @@ public class Legend
     public Intersected<SelectMode, bool>? SelectedMode { get; set; }
     public EChartsColor? InactiveColor { get; set; }
     public EChartsColor? InactiveBorderColor { get; set; }
-    public Intersected<Value, string> InactiveBorderWidth { get; set; }
+    public Intersected<Value, string>? InactiveBorderWidth { get; set; }
 
     /// <summary>
     /// State table of selected legend.
@@ -93,8 +93,8 @@ public enum LegendType
 
 public struct PageIcon
 {
-    public IList<Intersected<string, Uri>> Horizontal { get; set; }
-    public IList<Intersected<string, Uri>> Vertical { get; set; }
+    public IList<Intersected<string, Uri>>? Horizontal { get; set; }
+    public IList<Intersected<string, Uri>>? Vertical { get; set; }
 }
 
 public struct LegendSelector
