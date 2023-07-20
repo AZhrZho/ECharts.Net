@@ -40,6 +40,7 @@
 | **对`Option`进行封装** | 进行中 |
 | WinUI3支持 | 计划中 |
 | 序列化和互操作优化 | 计划中 |
+| .Net Framework支持 | 计划中 |
 
 ## 截图
 ![screenshot](/.github/screenshot-wpf.png)
