@@ -14,7 +14,7 @@
     <ProjectReference Include="..\ECharts.Net.Winform\ECharts.Net.Winform.csproj" />
     <ProjectReference Include="..\ECharts.Net\ECharts.Net.csproj" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' != 'net462'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows'">
 	<ProjectReference Include="..\ECharts.Net.Demo.JsInterop\ECharts.Net.Demo.JsInterop.csproj" />
   </ItemGroup>
 

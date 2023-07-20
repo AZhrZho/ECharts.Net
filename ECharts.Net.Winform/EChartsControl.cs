@@ -35,7 +35,7 @@ public partial class EChartsControl : UserControl
                 WebViewProxy.InvokeScriptAsync("window.addEventListener('resize', function(){ chart.resize() })");
                 EChart = new EChartInstance(WebViewProxy);
                 if (ChartOption is not null) EChart.SetOption(ChartOption);
-                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs);
+                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs!);
                 EChartsReady?.Invoke(this, new());
             });
         });

@@ -17,7 +17,7 @@ public partial class EChartsView : UserControl
     public event EventHandler? EChartsReady;
     public IWebViewProxy? WebViewProxy { get; private set; }
 
-#if NET6_0_OR_GREATER
+#if NET
     [NotNull]
 #endif
     public EChartInstance? EChart { get; private set; }
@@ -41,7 +41,7 @@ public partial class EChartsView : UserControl
                 WebViewProxy.InvokeScriptAsync("window.addEventListener('resize', function(){ chart.resize() })");
                 EChart = new EChartInstance(WebViewProxy);
                 if (ChartOption is not null) EChart.SetOption(ChartOption);
-                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs);
+                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs!);
                 EChartsReady?.Invoke(this, new());
             });
         });

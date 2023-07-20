@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net7.0-windows;net462</TargetFrameworks>
+    <TargetFrameworks>net7.0-windows;net462;net48</TargetFrameworks>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
 	<LangVersion>11</LangVersion>
@@ -11,7 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ECharts.Net.Wpf\ECharts.Net.Wpf.csproj" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' != 'net462'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows'">
 	<ProjectReference Include="..\ECharts.Net.Demo.JsInterop\ECharts.Net.Demo.JsInterop.csproj" />
   </ItemGroup>
 
