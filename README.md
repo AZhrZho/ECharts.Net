@@ -11,7 +11,7 @@
 </div>
 
 ## 简介
-可用于WPF/Winform的图表控件, 内部使用Webview2嵌入ECharts实现，基于最新的.net技术构建。
+可用于WPF/Winform的图表控件, 内部使用Webview2嵌入ECharts实现，基于最新的.net技术构建，同时兼容.net framework。
 
 ## 特点
 - 现代化：基于最新的.net7以及Webview2构建
@@ -40,7 +40,7 @@
 | **对`Option`进行封装** | 进行中 |
 | WinUI3支持 | 计划中 |
 | 序列化和互操作优化 | 计划中 |
-| .Net Framework支持 | 计划中 |
+| .Net Framework支持 | ✅ |
 
 ## 截图
 ![screenshot](/.github/screenshot-wpf.png)
