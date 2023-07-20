@@ -16,8 +16,10 @@ public partial class EChartsView : UserControl
 
     public event EventHandler? EChartsReady;
     public IWebViewProxy? WebViewProxy { get; private set; }
-    
+
+#if NET6_0_OR_GREATER
     [NotNull]
+#endif
     public EChartInstance? EChart { get; private set; }
 
     public Option? ChartOption { get; set; }

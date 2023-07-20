@@ -2,17 +2,20 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFrameworks>net7.0-windows;net462</TargetFrameworks>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+	<LangVersion>11</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ECharts.Net.Demo.JsInterop\ECharts.Net.Demo.JsInterop.csproj" />
     <ProjectReference Include="..\ECharts.Net.Webview2\ECharts.Net.Webview2.csproj" />
     <ProjectReference Include="..\ECharts.Net.Winform\ECharts.Net.Winform.csproj" />
     <ProjectReference Include="..\ECharts.Net\ECharts.Net.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' != 'net462'">
+	<ProjectReference Include="..\ECharts.Net.Demo.JsInterop\ECharts.Net.Demo.JsInterop.csproj" />
   </ItemGroup>
 
 </Project>

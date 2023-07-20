@@ -11,7 +11,7 @@ public class JsRawCall : JsDelegate
     {
         FuncName = funcName;
         var paras = Enumerable.Range(0, paramsCount).Select(x => $"p{x}");
-        var paramList = string.Join(',', paras);
+        var paramList = string.Join(",", paras);
         RawJsFunctionString = $$"""function({{paramList}}){return {{funcName}}({{paramList}})}""";
     }
 
@@ -21,5 +21,5 @@ public class JsRawCall : JsDelegate
         RawJsFunctionString = rawFunctionScript;
     }
 
-    public string FuncName { get; init; }
+    public string FuncName { get; private set; }
 }

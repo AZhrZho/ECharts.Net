@@ -8,7 +8,7 @@ public class WebView2Proxy : IWebViewProxy
 {
     static WebView2Proxy()
     {
-        IWebViewProxy.BridgedObjectHost = "window.chrome.webview.hostObjects.sync";
+        WebViewProxy.BridgedObjectHost = "window.chrome.webview.hostObjects.sync";
     }
 
     public WebView2Proxy(CoreWebView2 webView2)

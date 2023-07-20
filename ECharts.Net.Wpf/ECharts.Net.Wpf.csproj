@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFrameworks>net7.0-windows;net462</TargetFrameworks>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
 	<PackageId>ECharts.Net.Wpf</PackageId>
-	<Version>0.0.3</Version>
+	<Version>0.0.4</Version>
 	<Authors>AZhrZho</Authors>
 	<Company>Token Team</Company>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -17,6 +17,7 @@
 	<PackageProjectUrl>https://github.com/AZhrZho/ECharts.Net</PackageProjectUrl>
 	<Description>Introduce ECharts into your WPF apps, powered by Microsoft Webview2.</Description>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<LangVersion>11</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

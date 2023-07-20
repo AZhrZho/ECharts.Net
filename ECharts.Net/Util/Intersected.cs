@@ -57,13 +57,13 @@ public struct Intersected<T1, T2>
     public static bool operator ==(Intersected<T1, T2> intersected, T1 value)
     {
         if (!intersected.HasItem1) return false;
-        return EqualityComparer<T1>.Default.Equals(intersected.item1, value);
+        return EqualityComparer<T1>.Default.Equals(intersected.item1!, value);
     }
 
     public static bool operator ==(Intersected<T1, T2> intersected, T2 value)
     {
         if (!intersected.HasItem2) return false;
-        return EqualityComparer<T2>.Default.Equals(intersected.item2, value);
+        return EqualityComparer<T2>.Default.Equals(intersected.item2!, value);
     }
 
     public static bool operator !=(Intersected<T1, T2> intersected, T1 value) => !(intersected == value);
@@ -152,19 +152,19 @@ public struct Intersected<T1, T2, T3>
     public static bool operator ==(Intersected<T1, T2, T3> intersected, T1 value)
     {
         if (!intersected.HasItem1) return false;
-        return EqualityComparer<T1>.Default.Equals(intersected.item1, value);
+        return EqualityComparer<T1>.Default.Equals(intersected.item1!, value);
     }
 
     public static bool operator ==(Intersected<T1, T2, T3> intersected, T2 value)
     {
         if (!intersected.HasItem2) return false;
-        return EqualityComparer<T2>.Default.Equals(intersected.item2, value);
+        return EqualityComparer<T2>.Default.Equals(intersected.item2!, value);
     }
 
     public static bool operator ==(Intersected<T1, T2, T3> intersected, T3 value)
     {
         if (!intersected.HasItem3) return false;
-        return EqualityComparer<T3>.Default.Equals(intersected.item3, value);
+        return EqualityComparer<T3>.Default.Equals(intersected.item3!, value);
     }
 
     public static bool operator !=(Intersected<T1, T2, T3> intersected, T1 value) => !(intersected == value);
