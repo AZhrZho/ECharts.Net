@@ -13,7 +13,7 @@
 </div>
 
 ## Introduction
-ECharts.Net include control and types for WPF/Winform, which enables you to draw awesome charts using ECharts and interact with. Implemented using Microsoft Edge Webview2, based on modern .NET technologies.
+ECharts.Net include control and types for WPF/Winform, which enables you to draw awesome charts using ECharts and interact with. Implemented using Microsoft Edge Webview2, based on modern .NET technologies, also provide support for .net framework.
 
 ## Features
 - Modern：based on newest .NET7 framework and Webview2
