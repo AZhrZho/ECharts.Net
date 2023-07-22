@@ -12,6 +12,7 @@ public class LineStyle
     public LineJoin? Join { get; set; }
     public double? MiterLimit { get; set; }
     public double? ShadowBlur { get; set; }
+    public EChartsColor? ShadowColor { get; set; }
     public double? ShadowOffsetX { get; set; }
     public double? ShadowOffsetY { get; set; }
     public double? Opacity { get; set; }

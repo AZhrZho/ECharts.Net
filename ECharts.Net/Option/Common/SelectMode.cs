@@ -3,5 +3,6 @@
 public enum SelectMode
 {
     Single,
-    Multiple
+    Multiple,
+    Series
 }
