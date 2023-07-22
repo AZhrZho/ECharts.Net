@@ -47,7 +47,7 @@ public class Legend
     /// </code>
     /// See also: <seealso href="https://echarts.apache.org/en/option.html#legend.selected"/>
     /// </summary>
-    public dynamic? Selected { get; set; }
+    public object? Selected { get; set; }
     public LegendTextStyle? TextStyle { get; set; }
     public Tooltip? Tooltip { get; set; }
     public Intersected<Symbol, Uri>? Icon { get; set; }
