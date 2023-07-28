@@ -29,13 +29,13 @@ public abstract class AxisBase
     public double? LogBase { get; set; }
     public bool? Silent { get; set; }
     public bool? TriggerEvent { get; set; }
-    // AxisLine
-    // AxisTick
+    public AxisLine? AxisLine { get; set; }
+    public AxisTick? AxisTick { get; set; }
     // MinorTick
-    // AxisLabel
-    // SplitLine
+    public AxisLabel? AxisLabel { get; set; }
+    public AxisSplitLine? SplitLine { get; set; }
     // MinorSplitLine
-    // SplitArea
+    public AxisSplitArea? SplitArea { get; set; }
     // TODO: Support Data.TextStyle
     public IList<string>? Data { get; set; }
     // AxisPointer
@@ -49,4 +49,39 @@ public abstract class AxisBase
     public Intersected<double, JsFunc<int, double>>? AnimationDelayUpdate { get; set; }
     public int? ZLevel { get; set; }
     public int? Z { get; set; }
+}
+
+public class AxisLine
+{
+    public bool? Show { get; set; }
+    public bool? OnZero { get; set; }
+    public int? OnZeroAxisIndex { get; set; }
+    public Intersected<string, IList<string>>? Symbol { get; set; }
+    public Intersected<double, IList<double>>? SymbolSize { get; set; }
+    public Intersected<double, IList<double>>? SymbolOffset { get; set; }
+    public LineStyle? LineStyle { get; set; }
+}
+
+public class AxisTick
+{
+    public bool? Show { get; set; }
+    public bool? AlignWithLabel { get; set; }
+    public bool? Inside { get; set; }
+    public double? Length { get; set; }
+    public LineStyle? LineStyle { get; set; }
+    public double? Interval { get; set; }
+}
+
+public class AxisSplitLine
+{
+    public bool? Show { get; set; }
+    public double? Interval { get; set; }
+    public LineStyle? LineStyle { get; set; }
+}
+
+public class AxisSplitArea
+{
+    public bool? Show { get; set; }
+    public double? Interval { get; set; }
+    public AxisAreaStyle? AreaStyle { get; set; }
 }
