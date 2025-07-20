@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ECharts.Net;
 
-public class Series
+public abstract class Series
 {
     public string? Id { get; set; }
     public string? Name { get; set; }

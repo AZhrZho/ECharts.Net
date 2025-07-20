@@ -5,24 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ECharts.Net.Demo.Wpf"
         xmlns:line="clr-namespace:ECharts.Net.Demo.Wpf.Sample.Line"
+        xmlns:vm="clr-namespace:ECharts.Net.Demo.Wpf.Sample.ViewModels"
+        xmlns:echarts="clr-namespace:ECharts.Net.Wpf;assembly=ECharts.Net.Wpf"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="940" Width="1250">
+    <Window.DataContext>
+        <vm:LineGradientChartViewModel/>
+    </Window.DataContext>
     <Window.Resources>
         <Style x:Key="ChartStyle" TargetType="ContentControl">
             <Setter Property="Margin" Value="16"/>
-            <Setter Property="Width" Value="375"/>
+            <Setter Property="Width" Value="370"/>
             <Setter Property="Height" Value="300"/>
         </Style>
     </Window.Resources>
-    <Grid Background="Gray">
-        <WrapPanel Orientation="Horizontal">
-            <line:BasicLineChart Style="{StaticResource ChartStyle}"/>
-            <line:SmoothedLineChart Style="{StaticResource ChartStyle}"/>
-            <line:BasicAreaChart Style="{StaticResource ChartStyle}"/>
-            <line:StackedLineChart Style="{StaticResource ChartStyle}"/>
-            <line:StackedAreaChart Style="{StaticResource ChartStyle}"/>
-            <line:GradientStackedAreaChart Style="{StaticResource ChartStyle}"/>
-        </WrapPanel>
+    <Grid Background="White">
+        <!-- 添加 ScrollViewer 控件 -->
+        <!--<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <WrapPanel Orientation="Horizontal">
+                <line:BasicLineChart Style="{StaticResource ChartStyle}"/>
+                <line:SmoothedLineChart Style="{StaticResource ChartStyle}"/>
+                <line:BasicAreaChart Style="{StaticResource ChartStyle}"/>
+                <line:StackedLineChart Style="{StaticResource ChartStyle}"/>
+                <line:StackedAreaChart Style="{StaticResource ChartStyle}"/>
+                <line:GradientStackedAreaChart Style="{StaticResource ChartStyle}"/>
+                <line:LineGradientChart Style="{StaticResource ChartStyle}"/>
+            </WrapPanel>
+        </ScrollViewer>-->
+        <!-- ViewModel 更新方式 以下两种方式任选其一 不可混用 -->
+        <!-- option 类型目前不全 正在逐步添加中... -->
+        <!-- JS 可以配置所有图表 -->
+        <!-- option 更新 -->
+        <echarts:EChartsView DepOption="{Binding ChartOption}" />
+        <!-- JS 更新 -->
+        <!--<echarts:EChartsView DepOptionInJs="{Binding ChartOptionInJs}" />-->
     </Grid>
 </Window>

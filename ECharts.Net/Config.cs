@@ -25,6 +25,7 @@ namespace ECharts.Net
                         }
                             html,body {
                             height:100%;
+                            overflow: hidden;
                         }
                         .box {
                             height:100%;
