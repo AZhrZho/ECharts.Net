@@ -8,12 +8,12 @@ namespace ECharts.Net.Demo.Winform
             var option = new Option
             {
                 Title = new Title() { Text = "DemoChart" },
-                XAxis = new()
+                XAxis = new XAxis()
                 {
                     Type = AxisType.Category,
                     Data = Enumerable.Range(1, 10).Select(x => x.ToString()).ToList()
                 },
-                YAxis = new()
+                YAxis = new YAxis()
                 {
                     Type = AxisType.Value
                 },

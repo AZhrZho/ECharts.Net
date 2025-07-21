@@ -16,6 +16,7 @@ public class ItemStyle
     public LineJoin? BorderJoin { get; set; }
     public double? BorderMiterLimit { get; set; }
     public double? ShadowBlur { get; set; }
+    public Intersected<Value, EChartsColor>? ShadowColor { get; set; }
     public double? ShadowOffsetX { get; set; }
     public double? ShadowOffsetY { get; set; }
     public double? Opacity { get; set; }

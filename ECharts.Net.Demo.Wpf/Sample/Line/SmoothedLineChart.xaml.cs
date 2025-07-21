@@ -10,12 +10,12 @@ public partial class SmoothedLineChart : UserControl
         // https://echarts.apache.org/examples/en/editor.html?c=line-smooth
         var option = new Option
         {
-            XAxis = new()
+            XAxis = new XAxis()
             {
                 Type = AxisType.Category,
                 Data = new[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }
             },
-            YAxis = new()
+            YAxis = new YAxis()
             {
                 Type = AxisType.Value,
             },

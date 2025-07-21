@@ -48,13 +48,13 @@ namespace ECharts.Net.Demo.Wpf.Sample.Line
                     Bottom = "3%",
                     ContainLabel = true
                 },
-                XAxis = new()
+                XAxis = new XAxis()
                 {
                     Type = AxisType.Category,
                     BoundaryGap = false,
                     Data = new[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }
                 },
-                YAxis = new()
+                YAxis = new YAxis()
                 {
                     Type = AxisType.Value
                 },
