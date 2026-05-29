@@ -14,6 +14,7 @@ public class EChartInstance
     private readonly string instanceName;
     private int _optionCounter;
     private const int LargeOptionThreshold = 32 * 1024;
+    private string? _optionStr;
 
     public void SetOption(Option option, bool? notMerge = null, bool? lazyUpdate = null, string? replaceMerge = null)
     {
@@ -27,6 +28,7 @@ public class EChartInstance
 
     public void SetOption(string optionInJson, bool? notMerge = null, bool? lazyUpdate = null, string? replaceMerge = null)
     {
+        _optionStr = optionInJson;
         var setOptionArgs = BuildSetOptionArgs(notMerge, lazyUpdate, replaceMerge);
 
         if (optionInJson.Length > LargeOptionThreshold)
@@ -52,6 +54,17 @@ public class EChartInstance
         if (replaceMerge != null) parts.Add($"replaceMerge:{replaceMerge}");
 
         return $",{{{string.Join(",", parts)}}}";
+    }
+
+    public void SetTheme(bool isDark)
+    {
+        var themeArg = isDark ? "'dark'" : "null";
+        webView.InvokeScriptAsync($"{instanceName}.dispose()");
+        webView.InvokeScriptAsync($"{instanceName}=echarts.init(document.getElementById('{Config.EChartsContainerId}'),{themeArg})");
+        if (!string.IsNullOrEmpty(_optionStr))
+        {
+            webView.InvokeScriptAsync($"{instanceName}.setOption({_optionStr})");
+        }
     }
 
     public void Resize()

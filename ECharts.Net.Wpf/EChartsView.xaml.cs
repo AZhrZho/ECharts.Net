@@ -67,6 +67,10 @@ public partial class EChartsView : UserControl
             DependencyProperty.Register("ContainerElementId", typeof(string), typeof(EChartsView),
                 new PropertyMetadata(null));
 
+    // 是否为深色模式
+    public static readonly DependencyProperty IsDarkProperty =
+        DependencyProperty.Register("IsDark", typeof(bool), typeof(EChartsView), new PropertyMetadata(false, OnIsDarkChanged));
+
     public Option DepOption
     {
         get { return (Option)GetValue(DepOptionProperty); }
@@ -77,6 +81,11 @@ public partial class EChartsView : UserControl
     {
         get { return (string)GetValue(DepOptionInJsProperty); }
         set { SetValue(DepOptionInJsProperty, value); }
+    }
+    public bool IsDark
+    {
+        get { return (bool)GetValue(IsDarkProperty); }
+        set { SetValue(IsDarkProperty, value); }
     }
 
     public bool NotMerge
@@ -193,6 +202,12 @@ public partial class EChartsView : UserControl
         }
     }
 
+    private static void OnIsDarkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var view = (EChartsView)d;
+        view?.EChart?.SetTheme((bool)e.NewValue);
+    }
+
     private void WebView_CoreWebView2InitializationCompleted(object? sender, CoreWebView2InitializationCompletedEventArgs e)
     {
         webView.CoreWebView2InitializationCompleted -= WebView_CoreWebView2InitializationCompleted;
@@ -205,7 +220,7 @@ public partial class EChartsView : UserControl
         proxy.ContainerHtml = ContainerHtml;
         proxy.ContainerElementId = ContainerElementId;
         WebViewProxy = proxy;
-        proxy.InitializeEchartsEngineAsync().ContinueWith((_) =>
+        proxy.InitializeEchartsEngineAsync(IsDark).ContinueWith((_) =>
         {
             Dispatcher.Invoke(() =>
             {

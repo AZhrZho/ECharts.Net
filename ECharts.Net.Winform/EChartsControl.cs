@@ -31,6 +31,7 @@ public partial class EChartsControl : UserControl
     public string? ContainerElementId { get; set; }
     public bool NotMerge { get; set; }
     public bool LazyUpdate { get; set; }
+    public bool IsDark { get; set; } = false;
 
     private bool _loading;
     public bool Loading
@@ -59,7 +60,7 @@ public partial class EChartsControl : UserControl
         proxy.ContainerHtml = ContainerHtml;
         proxy.ContainerElementId = ContainerElementId;
         WebViewProxy = proxy;
-        proxy.InitializeEchartsEngineAsync().ContinueWith((_) =>
+        proxy.InitializeEchartsEngineAsync(IsDark).ContinueWith((_) =>
         {
             webView.Invoke(() =>
             {
@@ -67,7 +68,7 @@ public partial class EChartsControl : UserControl
                 EChart = new EChartInstance(WebViewProxy);
                 if (Loading) EChart.ShowLoading();
                 if (ChartOption is not null) EChart.SetOption(ChartOption, notMerge: NotMerge, lazyUpdate: LazyUpdate);
-                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs);
+                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs, notMerge: NotMerge, lazyUpdate: LazyUpdate);
                 EChartsReady?.Invoke(this, new());
             });
         });

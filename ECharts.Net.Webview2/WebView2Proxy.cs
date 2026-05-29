@@ -44,7 +44,7 @@ public class WebView2Proxy : IWebViewProxy
         return coreWebView2.ExecuteScriptAsync(script);
     }
 
-    public async Task InitializeEchartsEngineAsync()
+    public async Task InitializeEchartsEngineAsync(bool isDarkTheme = false)
     {
         var tcs = new TaskCompletionSource<bool>();
 
@@ -63,7 +63,7 @@ public class WebView2Proxy : IWebViewProxy
             coreWebView2.SetVirtualHostNameToFolderMapping(
                 VirtualHostName, _scriptTempDir.Value,
                 CoreWebView2HostResourceAccessKind.Allow);
-            coreWebView2.NavigateToString(BuildContainerHtml());
+            coreWebView2.NavigateToString(BuildContainerHtml(isDarkTheme));
         }
 
         await tcs.Task;
@@ -82,8 +82,9 @@ public class WebView2Proxy : IWebViewProxy
         }
     }
 
-    private static string BuildContainerHtml()
+    private static string BuildContainerHtml(bool isDarkTheme = false)
     {
+        var themeArg = isDarkTheme ? ", 'dark'" : "";
         return $$"""
             <!DOCTYPE html>
             <html>
@@ -106,7 +107,7 @@ public class WebView2Proxy : IWebViewProxy
             <body>
                 <div id="root" class="box"></div>
                 <script>
-                    const chart=echarts.init(document.getElementById('root'))
+                    const chart=echarts.init(document.getElementById('root'){{themeArg}})
                 </script>
             </body>
             </html>
