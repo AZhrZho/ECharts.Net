@@ -1,5 +1,7 @@
 # ECharts.Net - Bring ECharts into .NET applications
+
 [![NuGet Badge](https://buildstats.info/nuget/ECharts.Net.Core?includePreReleases=true)](https://www.nuget.org/packages/ECharts.Net.Core/0.0.4)
+
 <div align=center><img height='100' src=".github/icon.png"></div>
 
 <br/>
@@ -11,20 +13,22 @@
 </div>
 
 ## Roadmap
+
 This project is currently in the early stages of development. Basic functionality has been implemented, and all official ECharts examples can theoretically be achieved via direct JS calls. Current focus is on encapsulating the `Option` type.
 
-| Item | Status |
-| --- | --- |
-| Basic WebView2 control encapsulation | ✅ |
-| Core type system design | ✅ |
-| **`Option` type encapsulation** | In progress |
-| WinUI3 support | Planned |
-| Serialization and interop optimization | Planned |
-| .NET Framework support | ✅ |
+| Item                                   | Status      |
+| -------------------------------------- | ----------- |
+| Basic WebView2 control encapsulation   | ✅          |
+| Core type system design                | ✅          |
+| **`Option` type encapsulation**        | In progress |
+| WinUI3 support                         | Planned     |
+| Serialization and interop optimization | Planned     |
+| .NET Framework support                 | ✅          |
 
 ---
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
   - [Quick Start](#quick-start)
@@ -38,22 +42,25 @@ This project is currently in the early stages of development. Basic functionalit
 ---
 
 ## Introduction
+
 A chart control library for WPF/WinForms, powered by WebView2 with ECharts embedded. Built on modern .NET technologies while maintaining .NET Framework compatibility.
 
 ## Features
+
 - Modern: Built on .NET 7 and WebView2
 - High Performance: Minimal overhead for ECharts interop
 - Type Safe: Strongly-typed encapsulation of ECharts components
 - Flexible: Use .NET types or raw JavaScript strings interchangeably
 
 ## Getting Started
+
 Install via NuGet package manager:
 
-| Platform | Package |
-| --- | --- |
+| Platform | Package                                                                      |
+| -------- | ---------------------------------------------------------------------------- |
 | WinForms | [`ECharts.Net.Winform`](https://www.nuget.org/packages/ECharts.Net.Winform/) |
-| WPF | [`ECharts.Net.Wpf`](https://www.nuget.org/packages/ECharts.Net.Wpf/) |
-| WinUI3 | Not yet supported |
+| WPF      | [`ECharts.Net.Wpf`](https://www.nuget.org/packages/ECharts.Net.Wpf/)         |
+| WinUI3   | Not yet supported                                                            |
 
 Since we are in the early stages of development, there is no complete documentation yet. For detailed usage, please refer to the demo projects in this repository.
 
@@ -62,6 +69,7 @@ Since we are in the early stages of development, there is no complete documentat
 #### WPF
 
 **XAML declaration:**
+
 ```xml
 xmlns:echarts="clr-namespace:ECharts.Net.Wpf;assembly=ECharts.Net.Wpf"
 
@@ -69,6 +77,7 @@ xmlns:echarts="clr-namespace:ECharts.Net.Wpf;assembly=ECharts.Net.Wpf"
 ```
 
 **Data binding (recommended):**
+
 ```xml
 <echarts:EChartsView DepOption="{Binding ChartOption}"
                       Loading="{Binding IsLoading}" />
@@ -84,6 +93,7 @@ public Option? ChartOption
 ```
 
 **Code-behind:**
+
 ```csharp
 var option = new Option
 {
@@ -125,11 +135,13 @@ var option = new Option
 ```
 
 **WPF binding:** Property name is `DepOption`, supports XAML data binding
+
 ```xml
 <echarts:EChartsView DepOption="{Binding ChartOption}" />
 ```
 
 **WinForms:** Property name is `ChartOption`, assign directly
+
 ```csharp
 chart.ChartOption = option;
 ```
@@ -158,6 +170,7 @@ chart.ChartOptionInJs = optionJs;
 ```
 
 **WPF binding:**
+
 ```xml
 <echarts:EChartsView DepOptionInJs="{Binding ChartOptionInJs}" />
 ```
@@ -177,6 +190,7 @@ chart.Loading = false;
 ```
 
 **WPF binding:**
+
 ```xml
 <echarts:EChartsView Loading="{Binding IsLoading}" />
 ```
@@ -194,6 +208,7 @@ chart.NotMerge = true;
 ```
 
 **WPF binding:**
+
 ```xml
 <echarts:EChartsView DepOption="{Binding ChartOption}" NotMerge="True" />
 ```
@@ -207,6 +222,7 @@ chart.LazyUpdate = true;
 ```
 
 **WPF binding:**
+
 ```xml
 <echarts:EChartsView DepOption="{Binding ChartOption}" LazyUpdate="True" />
 ```
@@ -218,12 +234,14 @@ Replaces the built-in HTML template for customizing the page structure (e.g., ad
 > **Note:** Must be set before control initialization (before the `EChartsReady` event fires). The HTML must contain a `<div>` element as the chart container.
 
 **WPF (XAML):**
+
 ```xml
 <echarts:EChartsView ContainerHtml="{Binding MyHtml}"
                       ContainerElementId="chart1" />
 ```
 
 **WPF (code):**
+
 ```csharp
 var chart = new EChartsView();
 chart.ContainerHtml = """
@@ -244,6 +262,7 @@ chart.ContainerElementId = "chart1";
 ```
 
 **WinForms:**
+
 ```csharp
 var chart = new EChartsControl();
 chart.ContainerHtml = """
@@ -297,27 +316,27 @@ private void OnTimerTick()
 
 #### WPF Dependency Properties
 
-| Property | Type | Description |
-| --- | --- | --- |
-| `DepOption` | `Option?` | Chart config (strongly typed), supports binding, auto-refresh on change |
-| `DepOptionInJs` | `string?` | Chart config (JSON string), supports binding |
-| `NotMerge` | `bool` | Fully replace config instead of merging, default `false` |
-| `LazyUpdate` | `bool` | Defer rendering to next frame, default `false` |
-| `Loading` | `bool` | Show/hide loading animation, default `false` |
-| `ContainerHtml` | `string?` | Custom container HTML, replaces default template |
-| `ContainerElementId` | `string?` | Chart div ID in custom HTML, default `"root"` |
+| Property             | Type      | Description                                                             |
+| -------------------- | --------- | ----------------------------------------------------------------------- |
+| `DepOption`          | `Option?` | Chart config (strongly typed), supports binding, auto-refresh on change |
+| `DepOptionInJs`      | `string?` | Chart config (JSON string), supports binding                            |
+| `NotMerge`           | `bool`    | Fully replace config instead of merging, default `false`                |
+| `LazyUpdate`         | `bool`    | Defer rendering to next frame, default `false`                          |
+| `Loading`            | `bool`    | Show/hide loading animation, default `false`                            |
+| `ContainerHtml`      | `string?` | Custom container HTML, replaces default template                        |
+| `ContainerElementId` | `string?` | Chart div ID in custom HTML, default `"root"`                           |
 
 #### WinForms Properties
 
-| Property | Type | Description |
-| --- | --- | --- |
-| `ChartOption` | `Option?` | Chart config (strongly typed) |
-| `ChartOptionInJs` | `string?` | Chart config (JSON string) |
-| `NotMerge` | `bool` | Fully replace config instead of merging, default `false` |
-| `LazyUpdate` | `bool` | Defer rendering to next frame, default `false` |
-| `Loading` | `bool` | Show/hide loading animation, default `false` |
-| `ContainerHtml` | `string?` | Custom container HTML, replaces default template |
-| `ContainerElementId` | `string?` | Chart div ID in custom HTML, default `"root"` |
+| Property             | Type      | Description                                              |
+| -------------------- | --------- | -------------------------------------------------------- |
+| `ChartOption`        | `Option?` | Chart config (strongly typed)                            |
+| `ChartOptionInJs`    | `string?` | Chart config (JSON string)                               |
+| `NotMerge`           | `bool`    | Fully replace config instead of merging, default `false` |
+| `LazyUpdate`         | `bool`    | Defer rendering to next frame, default `false`           |
+| `Loading`            | `bool`    | Show/hide loading animation, default `false`             |
+| `ContainerHtml`      | `string?` | Custom container HTML, replaces default template         |
+| `ContainerElementId` | `string?` | Chart div ID in custom HTML, default `"root"`            |
 
 ### EChartsReady Event & EChart Instance
 
@@ -339,7 +358,9 @@ chart.EChartsReady += (_, _) =>
 ```
 
 ## Screenshot
+
 ![screenshot](/.github/screenshot-wpf.png)
 
 ## Contributing
+
 Any [Issues](https://github.com/AZhrZho/ECharts.Net/issues/new) or PRs related to this project are welcome.

@@ -40,10 +40,18 @@ namespace ECharts.Net
         }
 
         internal static string EChartsEngineScript { get; private set; }
+        internal static string EChartsContainerHtml { get; private set; }
+        internal static string EChartsContainerId { get; private set; }
 
         public static void SetEchartsEngineScript(string script)
         {
             EChartsEngineScript = script;
+        }
+
+        public static void SetEchartsContainerHtml(string html, string containerElementId)
+        {
+            EChartsContainerHtml = html;
+            EChartsContainerId = containerElementId;
         }
     }
 }

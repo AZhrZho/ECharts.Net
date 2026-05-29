@@ -11,17 +11,17 @@ namespace ECharts.Net.Demo.Wpf.Sample.ViewModels
 {
     public class LineGradientChartViewModel : BindableBase
     {
-        private Option _chartOption;
+        private Option? _chartOption;
 
-        public Option ChartOption
+        public Option? ChartOption
         {
             get { return _chartOption; }
             set { SetProperty(ref _chartOption, value); }
         }
 
-        private string _chartOptionInJs;
+        private string? _chartOptionInJs;
 
-        public string ChartOptionInJs
+        public string? ChartOptionInJs
         {
             get { return _chartOptionInJs; }
             set { SetProperty(ref _chartOptionInJs, value); }

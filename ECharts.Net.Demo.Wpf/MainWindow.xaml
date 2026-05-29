@@ -11,9 +11,10 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Height="940"
-        Width="1250">
+        Width="1250"
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
-        <vm:LineGradientChartViewModel/>
+        <vm:RealtimeLineChartViewModel/>
     </Window.DataContext>
     <Window.Resources>
         <Style x:Key="ChartStyle"
@@ -42,9 +43,16 @@
         <!-- ViewModel 更新方式 以下两种方式任选其一 不可混用 -->
         <!-- option 类型目前不全 正在逐步添加中... -->
         <!-- JS 可以配置所有图表 -->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <!-- option 更新 -->
-        <echarts:EChartsView DepOption="{Binding ChartOption}"/>
+        <echarts:EChartsView DepOption="{Binding ChartOption}"
+                Loading="{Binding IsLoading}"/>
         <!-- JS 更新 -->
-        <!--<echarts:EChartsView DepOptionInJs="{Binding ChartOptionInJs}" />-->
+        <echarts:EChartsView Grid.Row="1"
+                DepOptionInJs="{Binding ChartOptionInJs}"
+                Loading="{Binding IsLoading}"/>
     </Grid>
 </Window>
