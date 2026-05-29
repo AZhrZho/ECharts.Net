@@ -18,6 +18,7 @@ public partial class EChartsControl : UserControl
 
     public Option? ChartOption { get; set; }
     public string? ChartOptionInJs { get; set; }
+    public bool IsDark { get; set; } = false;
 
     private void WebView_CoreWebView2InitializationCompleted(object? sender, CoreWebView2InitializationCompletedEventArgs e)
     {
@@ -28,7 +29,7 @@ public partial class EChartsControl : UserControl
         }
 
         WebViewProxy = new WebView2Proxy(webView.CoreWebView2);
-        WebViewProxy.InitializeEchartsEngineAsync().ContinueWith((_) =>
+        WebViewProxy.InitializeEchartsEngineAsync(IsDark).ContinueWith((_) =>
         {
             webView.Invoke(() =>
             {

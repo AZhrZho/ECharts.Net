@@ -37,7 +37,7 @@
         <!-- option 类型目前不全 正在逐步添加中... -->
         <!-- JS 可以配置所有图表 -->
         <!-- option 更新 -->
-        <echarts:EChartsView DepOption="{Binding ChartOption}" />
+        <echarts:EChartsView IsDark="True" DepOption="{Binding ChartOption}" />
         <!-- JS 更新 -->
         <!--<echarts:EChartsView DepOptionInJs="{Binding ChartOptionInJs}" />-->
     </Grid>

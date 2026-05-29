@@ -35,6 +35,10 @@ public partial class EChartsView : UserControl
             DependencyProperty.Register("DepOptionInJs", typeof(string), typeof(EChartsView),
                 new PropertyMetadata(null, OnDepOptionInJsChanged));
 
+    // 是否为深色模式
+    public static readonly DependencyProperty IsDarkProperty =
+        DependencyProperty.Register("IsDark", typeof(bool), typeof(EChartsView), new PropertyMetadata(false, OnIsDarkChanged));
+
     public Option DepOption
     {
         get { return (Option)GetValue(DepOptionProperty); }
@@ -45,6 +49,11 @@ public partial class EChartsView : UserControl
     {
         get { return (string)GetValue(DepOptionInJsProperty); }
         set { SetValue(DepOptionInJsProperty, value); }
+    }
+    public bool IsDark
+    {
+        get { return (bool)GetValue(IsDarkProperty); }
+        set { SetValue(IsDarkProperty, value); }
     }
 
     private static void OnDepOptionChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -64,7 +73,7 @@ public partial class EChartsView : UserControl
             view.ChartOption = newOption;
         }
     }
-    
+
     private static void OnDepOptionInJsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var view = (EChartsView)d;
@@ -83,6 +92,14 @@ public partial class EChartsView : UserControl
         }
     }
 
+    private static void OnIsDarkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var view = (EChartsView)d;
+        var curChgVaule = e.NewValue as bool?;
+        bool isDark = curChgVaule ?? false;
+        view?.EChart?.SetTheme(isDark);
+    }
+
     private void WebView_CoreWebView2InitializationCompleted(object? sender, CoreWebView2InitializationCompletedEventArgs e)
     {
         webView.CoreWebView2InitializationCompleted -= WebView_CoreWebView2InitializationCompleted;
@@ -92,9 +109,9 @@ public partial class EChartsView : UserControl
         }
 
         WebViewProxy = new WebView2Proxy(webView.CoreWebView2);
-        WebViewProxy.InitializeEchartsEngineAsync().ContinueWith((_) =>
+        WebViewProxy.InitializeEchartsEngineAsync(IsDark).ContinueWith((_) =>
         {
-            Dispatcher.Invoke(() => 
+            Dispatcher.Invoke(() =>
             {
                 WebViewProxy.InvokeScriptAsync("window.addEventListener('resize', function(){ chart.resize() })");
                 EChart = new EChartInstance(WebViewProxy);
