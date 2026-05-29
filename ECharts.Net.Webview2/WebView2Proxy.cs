@@ -37,9 +37,9 @@ public class WebView2Proxy : IWebViewProxy
             coreWebView2.NavigationCompleted -= NavigationCompleteHandler;
             await coreWebView2.ExecuteScriptAsync(Config.EChartsEngineScript);
             if (!isDarkTheme)
-                await coreWebView2.ExecuteScriptAsync($"const chart=echarts.init(document.getElementById('{Config.EChartsContainerId}'))");
+                await coreWebView2.ExecuteScriptAsync($"var chart=echarts.init(document.getElementById('{Config.EChartsContainerId}'))");
             else
-                await coreWebView2.ExecuteScriptAsync($"const chart=echarts.init(document.getElementById('{Config.EChartsContainerId}'),'dark')");
+                await coreWebView2.ExecuteScriptAsync($"var chart=echarts.init(document.getElementById('{Config.EChartsContainerId}'),'dark')");
             autoResetEvent.Set();
         }
     }

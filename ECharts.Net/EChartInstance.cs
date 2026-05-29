@@ -12,20 +12,32 @@ public class EChartInstance
 
     private readonly IWebViewProxy webView;
     private readonly string instanceName;
+    private string _optionStr; 
 
     public void SetOption(Option option) 
     {
-        SetOption(JsonSerializer.Serialize(option, SerializerOptions));
+        _optionStr = JsonSerializer.Serialize(option, SerializerOptions);
+        SetOption(_optionStr);
     }
 
     public void SetOption(dynamic option)
     {
-        SetOption(JsonSerializer.Serialize(option, SerializerOptions));
+        _optionStr = JsonSerializer.Serialize(option, SerializerOptions);
+        SetOption(_optionStr);
     }
 
     public void SetOption(string optionInJson) 
     {
-        webView.InvokeScriptAsync($"{instanceName}.setOption({optionInJson})");
+        _optionStr = $"{instanceName}.setOption({optionInJson})";
+        webView.InvokeScriptAsync(_optionStr);
+    }
+
+    public void SetTheme(bool isDark)
+    {
+        string strIsDark = isDark.ToString().ToLower();
+        webView.InvokeScriptAsync($"{instanceName}.dispose()");
+        webView.InvokeScriptAsync($"{instanceName}=echarts.init(document.getElementById('{Config.EChartsContainerId}'),{strIsDark} ? 'dark' : 'light')");
+        webView.InvokeScriptAsync(_optionStr);
     }
 
     public void Resize()
