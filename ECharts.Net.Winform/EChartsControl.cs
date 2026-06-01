@@ -1,4 +1,6 @@
-﻿using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.Core;
+using System.Windows.Forms;
+using WinFormsTimer = System.Windows.Forms.Timer;
 
 namespace ECharts.Net.Winform;
 
@@ -18,7 +20,33 @@ public partial class EChartsControl : UserControl
 
     public Option? ChartOption { get; set; }
     public string? ChartOptionInJs { get; set; }
+    /// <summary>
+    /// 自定义容器 HTML，设置后替代默认模板
+    /// </summary>
+    public string? ContainerHtml { get; set; }
+
+    /// <summary>
+    /// 自定义容器中图表 div 的元素 ID，默认 "root"
+    /// </summary>
+    public string? ContainerElementId { get; set; }
+    public bool NotMerge { get; set; }
+    public bool LazyUpdate { get; set; }
     public bool IsDark { get; set; } = false;
+
+    private bool _loading;
+    public bool Loading
+    {
+        get => _loading;
+        set
+        {
+            _loading = value;
+            if (EChart == null) return;
+            if (value) EChart.ShowLoading();
+            else EChart.HideLoading();
+        }
+    }
+
+    private WinFormsTimer? _resizeDebounceTimer;
 
     private void WebView_CoreWebView2InitializationCompleted(object? sender, CoreWebView2InitializationCompletedEventArgs e)
     {
@@ -28,15 +56,19 @@ public partial class EChartsControl : UserControl
             throw new ApplicationException("webview2 initialization failed", e.InitializationException);
         }
 
-        WebViewProxy = new WebView2Proxy(webView.CoreWebView2);
-        WebViewProxy.InitializeEchartsEngineAsync(IsDark).ContinueWith((_) =>
+        var proxy = new WebView2Proxy(webView.CoreWebView2);
+        proxy.ContainerHtml = ContainerHtml;
+        proxy.ContainerElementId = ContainerElementId;
+        WebViewProxy = proxy;
+        proxy.InitializeEchartsEngineAsync(IsDark).ContinueWith((_) =>
         {
             webView.Invoke(() =>
             {
                 WebViewProxy.InvokeScriptAsync("window.addEventListener('resize', function(){ chart.resize() })");
                 EChart = new EChartInstance(WebViewProxy);
-                if (ChartOption is not null) EChart.SetOption(ChartOption);
-                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs);
+                if (Loading) EChart.ShowLoading();
+                if (ChartOption is not null) EChart.SetOption(ChartOption, notMerge: NotMerge, lazyUpdate: LazyUpdate);
+                else if (!string.IsNullOrEmpty(ChartOptionInJs)) EChart.SetOption(ChartOptionInJs, notMerge: NotMerge, lazyUpdate: LazyUpdate);
                 EChartsReady?.Invoke(this, new());
             });
         });
@@ -45,6 +77,18 @@ public partial class EChartsControl : UserControl
     private void EChartsControl_SizeChanged(object? sender, EventArgs e)
     {
         webView.Size = this.Size;
+        if (_resizeDebounceTimer == null)
+        {
+            _resizeDebounceTimer = new WinFormsTimer { Interval = 16 };
+            _resizeDebounceTimer.Tick += OnResizeDebounceTick;
+        }
+        _resizeDebounceTimer.Stop();
+        _resizeDebounceTimer.Start();
+    }
+
+    private void OnResizeDebounceTick(object? sender, EventArgs e)
+    {
+        _resizeDebounceTimer!.Stop();
         EChart?.Resize();
     }
 }
