@@ -267,6 +267,28 @@ chart.ContainerElementId = "chart1";
 
 配合 `ContainerHtml` 使用，指定自定义 HTML 中图表 `<div>` 的 `id`。不设置时默认为 `"root"`。
 
+#### IsDark — 深色主题
+
+控制图表是否使用 ECharts 深色主题（Dark）。默认 `false`（浅色），设为 `true` 时图表将以深色主题渲染。
+
+> **注意：** 必须在控件初始化之前设置（即 `EChartsReady` 事件触发前），主题在初始化时确定，运行时更改会重新初始化图表。
+
+```csharp
+// 启用深色主题
+chart.IsDark = true;
+```
+
+**WPF 绑定：**
+```xml
+<echarts:EChartsView IsDark="True" DepOption="{Binding ChartOption}" />
+```
+
+**WinForm：**
+```csharp
+var chart = new EChartsControl();
+chart.IsDark = true;
+```
+
 ### 实时数据更新
 
 WPF 绑定模式下，只需更新 ViewModel 属性，图表自动刷新：
@@ -304,6 +326,7 @@ private void OnTimerTick()
 | `NotMerge` | `bool` | 是否完全替换配置，默认 `false`（合并） |
 | `LazyUpdate` | `bool` | 是否延迟到下一帧渲染，默认 `false` |
 | `Loading` | `bool` | 显示/隐藏加载动画，默认 `false` |
+| `IsDark` | `bool` | 是否使用深色主题，默认 `false` |
 | `ContainerHtml` | `string?` | 自定义容器 HTML，替代默认模板 |
 | `ContainerElementId` | `string?` | 自定义容器中图表 div 的 ID，默认 `"root"` |
 
@@ -316,6 +339,7 @@ private void OnTimerTick()
 | `NotMerge` | `bool` | 是否完全替换配置，默认 `false`（合并） |
 | `LazyUpdate` | `bool` | 是否延迟到下一帧渲染，默认 `false` |
 | `Loading` | `bool` | 显示/隐藏加载动画，默认 `false` |
+| `IsDark` | `bool` | 是否使用深色主题，默认 `false` |
 | `ContainerHtml` | `string?` | 自定义容器 HTML，替代默认模板 |
 | `ContainerElementId` | `string?` | 自定义容器中图表 div 的 ID，默认 `"root"` |
 

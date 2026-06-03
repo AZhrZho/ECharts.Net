@@ -286,6 +286,30 @@ chart.ContainerElementId = "chart1";
 
 Used together with `ContainerHtml`, specifies the `id` of the chart `<div>` in the custom HTML. Defaults to `"root"` when not set.
 
+#### IsDark — Dark Theme
+
+Controls whether the chart uses the ECharts dark theme. Default is `false` (light theme), set to `true` to render with the dark theme.
+
+> **Note:** Must be set before control initialization (before the `EChartsReady` event fires). The theme is determined at initialization; changing it at runtime will reinitialize the chart.
+
+```csharp
+// Enable dark theme
+chart.IsDark = true;
+```
+
+**WPF binding:**
+
+```xml
+<echarts:EChartsView IsDark="True" DepOption="{Binding ChartOption}" />
+```
+
+**WinForms:**
+
+```csharp
+var chart = new EChartsControl();
+chart.IsDark = true;
+```
+
 ### Real-time Data Updates
 
 In WPF binding mode, simply update the ViewModel property and the chart refreshes automatically:
@@ -323,6 +347,7 @@ private void OnTimerTick()
 | `NotMerge`           | `bool`    | Fully replace config instead of merging, default `false`                |
 | `LazyUpdate`         | `bool`    | Defer rendering to next frame, default `false`                          |
 | `Loading`            | `bool`    | Show/hide loading animation, default `false`                            |
+| `IsDark`             | `bool`    | Use ECharts dark theme, default `false`                                 |
 | `ContainerHtml`      | `string?` | Custom container HTML, replaces default template                        |
 | `ContainerElementId` | `string?` | Chart div ID in custom HTML, default `"root"`                           |
 
@@ -335,6 +360,7 @@ private void OnTimerTick()
 | `NotMerge`           | `bool`    | Fully replace config instead of merging, default `false` |
 | `LazyUpdate`         | `bool`    | Defer rendering to next frame, default `false`           |
 | `Loading`            | `bool`    | Show/hide loading animation, default `false`             |
+| `IsDark`             | `bool`    | Use ECharts dark theme, default `false`                  |
 | `ContainerHtml`      | `string?` | Custom container HTML, replaces default template         |
 | `ContainerElementId` | `string?` | Chart div ID in custom HTML, default `"root"`            |
 
