@@ -38,6 +38,8 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
+    - name: Install wasm-tools-net7 workload
+      run: dotnet workload install wasm-tools-net7
     - name: Build WPF Demo
       working-directory: "ECharts.Net.Demo.Wpf"
       run: dotnet build --configuration Release
