@@ -220,7 +220,7 @@ public partial class EChartsView : UserControl
         proxy.ContainerHtml = ContainerHtml;
         proxy.ContainerElementId = ContainerElementId;
         WebViewProxy = proxy;
-        proxy.InitializeEchartsEngineAsync(IsDark).ContinueWith((_) =>
+        WebViewProxy.InitializeEchartsEngineAsync().ContinueWith((_) =>
         {
             Dispatcher.Invoke(() =>
             {

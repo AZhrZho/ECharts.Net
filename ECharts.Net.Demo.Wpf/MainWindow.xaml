@@ -48,8 +48,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <!-- option 更新 -->
-        <echarts:EChartsView IsDark="True" DepOption="{Binding ChartOption}"
-                Loading="{Binding IsLoading}"/>
+        <echarts:EChartsView DepOption="{Binding ChartOption}"
+                             IsDark="True"
+                             Loading="{Binding IsLoading}"/>
         <!-- JS 更新 -->
         <echarts:EChartsView Grid.Row="1"
                 DepOptionInJs="{Binding ChartOptionInJs}"

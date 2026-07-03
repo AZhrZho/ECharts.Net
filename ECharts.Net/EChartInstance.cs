@@ -1,4 +1,4 @@
-using ECharts.Net.JsonConverter;
+﻿using ECharts.Net.JsonConverter;
 
 namespace ECharts.Net;
 

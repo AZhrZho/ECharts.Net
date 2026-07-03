@@ -72,7 +72,7 @@ public class WebView2Proxy : IWebViewProxy
         {
             await coreWebView2.ExecuteScriptAsync(Config.EChartsEngineScript);
             await coreWebView2.ExecuteScriptAsync(
-                $"const chart=echarts.init(document.getElementById('{ContainerElementId ?? "root"}'))");
+                $"var chart=echarts.init(document.getElementById('{ContainerElementId ?? "root"}'))");
         }
 
         void NavigationCompleteHandler(object? sender, CoreWebView2NavigationCompletedEventArgs _)
@@ -107,7 +107,7 @@ public class WebView2Proxy : IWebViewProxy
             <body>
                 <div id="root" class="box"></div>
                 <script>
-                    const chart=echarts.init(document.getElementById('root'){{themeArg}})
+                    var chart=echarts.init(document.getElementById('root'){{themeArg}})
                 </script>
             </body>
             </html>
