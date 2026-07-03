@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 
 namespace ECharts.Net.Demo.Wpf.Sample.ViewModels
 {
-    public class LineGradientChartViewModel: BindableBase
+    public class LineGradientChartViewModel : BindableBase
     {
-        private Option _chartOption;
+        private Option? _chartOption;
 
-        public Option ChartOption
+        public Option? ChartOption
         {
             get { return _chartOption; }
-            set { SetProperty( ref _chartOption, value ); }
+            set { SetProperty(ref _chartOption, value); }
         }
-        
-        private string _chartOptionInJs;
 
-        public string ChartOptionInJs
+        private string? _chartOptionInJs;
+
+        public string? ChartOptionInJs
         {
             get { return _chartOptionInJs; }
-            set { SetProperty( ref _chartOptionInJs, value ); }
+            set { SetProperty(ref _chartOptionInJs, value); }
         }
 
 
@@ -222,7 +222,7 @@ namespace ECharts.Net.Demo.Wpf.Sample.ViewModels
              """;
 
             // 以下两种任选其一
-             ChartOption = option;
+            ChartOption = option;
             // ChartOptionInJs = optionInJs;
         }
     }
